@@ -8,29 +8,47 @@
 <p>This site uses jinja for template inheritence and for passing python dictionaries of the table rows and columns <br>
      queried from sqlalchemy Object Relational Mapping classes into the html template to be iterated over in a for loop and displayed in html tables</p>
 <p>The tables are all queried at the same time, but there is a javascript function that unhides the tables when selected from the drop-down menu</p> -->
+<style>
+  /*Setup for Rows*/
+  .row {
+    display: flex;
+  }
 
-<h3>Home</h3>
-<p>Home will have general information about us and the project. This includes Background Information, and an Overview and Instructions</p>
-<br>
-<p>Background Information
-<br>
-<p>Toolkit Overview
-<br>
-<p>Instructions
-<br>
-<p>About Us</p>
-<div class="row">
-  <div class="column">
-    <div id="center"><p>Valeda and Eric...</p></div>
-    <a href="../static/img/madJack.png">
-      <div id="center"><img src="../static/img/madJack.png" alt="Western Logo" width="200"></div>
-    </a>
-  </div>
-  <div class="column">
-    <div id="center"><p>The 30 Percent Senior Design Team...</p></div>
-    <a href="../static/img/blasterSmall.png">
-      <div id="center"><img src="../static/img/blasterSmall.png" alt="Blaster Logo" width="200"></div>
-    </a>
+  .column {
+    flex: 50%;
+  }
+</style>
+<div class="container">
+  <h3>Home</h3>
+  <p>Home will have general information about us and the project. This includes Background Information, and an Overview
+    and Instructions</p>
+  <br>
+  <p>Background Information
+    <br>
+  <p>Toolkit Overview
+    <br>
+  <p>Instructions
+    <br>
+  <p>About Us</p>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div id="center">
+        <p>Valeda and Eric...</p>
+      </div>
+      <a href="../static/img/madJack.png">
+        <div id="center"><img src="../static/img/madJack.png" alt="Western Logo" width="200"></div>
+      </a>
+    </div>
+    <div class="col-sm">
+      <div id="center">
+        <p>The 30 Percent Senior Design Team...</p>
+      </div>
+      <a href="../static/img/blasterSmall.png">
+        <div id="center"><img src="../static/img/blasterSmall.png" alt="Blaster Logo" width="200"></div>
+      </a>
+    </div>
   </div>
 </div>
 

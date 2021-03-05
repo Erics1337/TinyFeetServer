@@ -39,8 +39,8 @@ def read():
 
 
 # ------- Select page GET route and POST form handling to load table chart ------- #
-@sectors_blueprint.route('/select', methods=['GET', 'POST'])
-def select():
+@sectors_blueprint.route('/emissions', methods=['GET', 'POST'])
+def emissions():
     form = CityCountyZipDropDown()
     form.county.choices = [(row.county) for row in db.session.query(zip_pop.county).distinct(zip_pop.county).order_by(zip_pop.county)]
     form.city.choices=["Select Option"]
@@ -52,10 +52,10 @@ def select():
         if city == "Select Option" or zip=="Select Option":
             flash("Please Select a County Option")
         else:
-            return redirect(f'select/{zip}')
+            return redirect(f'emissions/{zip}')
 
-        return render_template('mainPages/select.html', form=form)
-    return render_template('mainPages/select.html', form=form)
+        return render_template('mainPages/emissions.html', form=form)
+    return render_template('mainPages/emissions.html', form=form)
 
 
 # ------------------------------ navbar redirect ----------------------------- #
@@ -63,12 +63,12 @@ def select():
 def search():
     zip = request.form.get('zipInput')
         
-    return redirect(f'sectors/select/{zip}')
+    return redirect(f'sectors/emissions/{zip}')
 
 
 # -------------------------- Generate Chart From Zip ------------------------- #
 
-@sectors_blueprint.route('/select/<zip>', methods=['GET', 'POST'])
+@sectors_blueprint.route('/emissions/<zip>', methods=['GET', 'POST'])
 def chart(zip):
 
     form = CityCountyZipDropDown()
@@ -77,7 +77,7 @@ def chart(zip):
     print(query)
     if query.count() == 0:
         flash("That Zip Code Does Not Exist!")
-        return render_template('mainPages/select.html', form=form,)
+        return render_template('mainPages/emissions.html', form=form,)
 
     else:
         for row in query:
@@ -98,7 +98,7 @@ def chart(zip):
         form.city.choices = [(row.city, row.city) for row in db.session.query(zip_pop.city).filter_by(county=county).distinct(zip_pop.county).order_by(zip_pop.city)]
         form.zip.choices = [(row.zip, row.zip) for row in db.session.query(zip_pop.zip).filter_by(city=city).all()]
         
-        return render_template('mainPages/select.html', form=form, zipData=zipData)
+        return render_template('mainPages/emissions.html', form=form, zipData=zipData)
 
 
 # --------------------- Dynamic Dropdown Option Changing for Select page--------------------- #

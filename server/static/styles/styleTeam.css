@@ -43,4 +43,11 @@ h2 {
     font-size: 18px;
 }
 
+/*Setup for Rows*/
+.row {
+  display: flex;
+}
 
+.column {
+  flex: 50%;
+}

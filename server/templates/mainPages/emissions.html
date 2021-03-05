@@ -1,46 +1,81 @@
 {% extends "helpers/base.html" %}
 {% block title %} Emissions {% endblock %}
+{%block script %}
+{% if zipData %}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load("current", { packages: ["corechart"] });
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      {% for key, value in zipData.items() %}
+  {% if value is string %}
+  ['{{ key }}', '{{ value }}'],
+    {% else %}
+  ['{{ key }}', {{ value }}],
+    {% endif %}
+  {% endfor %}
+      ]);
+
+  var options = {
+    title: 'Sector Emissions Data (Metric Tons/ Year)',
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById('chart'));
+  chart.draw(data, options);
+    }
+</script>
+{% endif %}
+{% endblock %}
+
 {% block content %}
-<h3>Emissions Estimation</h3>
-  <p>Emissions Estimation will display a heat map of Colorado by zip code with the data from out database. It will then take in the user region ID and display emissions totals and holistic metrics. It will also have an option to download the data from our database?</p> 
+
+<div class=container>
+  <h3>Emissions Estimation</h3>
+  <p>Emissions Estimation will display a heat map of Colorado by zip code with the data from out database. It will then
+    take in the user region ID and display emissions totals and holistic metrics. It will also have an option to
+    download the data from our database?</p>
 
   <iframe src="http://tinyfeettoolkit.com/map/" style="height:75vw;width:100%;" title="Iframe Example"></iframe>
   <br>
   <br>
   <br>
-  
-  <!-- User Region Input -->
-  <form action="" method="POST">
-      <div>
-        <label>Zip Code/City/County</label>
-        <input type="number" name="region_ID" placeholder="Enter Location">
-        <input type="submit" name="submit_location" value="Submit">
-      </div>
-      <br>
-    </form>
-<!--Output-->
-<br>
-<p>Total Region Emissions:</p>
-<br>
-
-<!--PIE CHART start-->
-<!--Pull Sector Totals for zipcode and use here-->
-<body>
-
-  <p>Region Emissions by Sector:</p>
-  
-  <div id="piechart"></div>
-  
-  </body>
-<!--PIE CHART end-->
-
-<br>
-<p>Region Holistic Community Metrics:</p>
-<br>
-  <!--Download Button-->
-  <button class="btn"><i class="fa fa-download"></i> Download All Data</button>
 </div>
 
+{# get_flashed_messages() is auto sent to the template with the flash() call #}
+{% for mess in get_flashed_messages() %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" class="fade close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  {{mess}}
+</div>
+{% endfor %}
 
-  {% endblock %}
 
+{% from "helpers/_formHelpers.html" import render_field %}
+<form action="/sectors/emissions" method="POST" name="chartForm">
+  <div class="container">
+    <div class="row">
+      {{ form.csrf_token }}
+      <!-- -------------- , onchange="submitForm(chartForm);" -------------- -->
+      <div class="col-md-4">{{ render_field(form.county) }}</div>
+      <div class="col-md-4">{{ render_field(form.city, onchange="submitForm(chartForm)")}}</div>
+      <div class="col-md-4">{{ render_field(form.zip, onchange="submitForm(chartForm)")}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">{{ form.submit }}</div>
+    </div>
+  </div>
+</form>
+
+{% if zipData %}
+<div class="container">
+  <br>
+  <h3>All Sector GHG Data Chart</h3>
+  <div id="chart"></div>
+</div>
+{% endif %}
+
+{% endblock %}

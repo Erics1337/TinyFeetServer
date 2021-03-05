@@ -1,11 +1,15 @@
 {% extends "helpers/base.html" %}
 {% block title %} Recommended Actions {% endblock %}
 {% block content %}
-<h3>Recommended Actions</h3>
-  <p>Recommended Actions will list an explanation of all recommended actions and their impact. It shows the general recommendations we will provide on the website as well as our sources for all recommendations. Finally it will have links to other actions and resources.</p>
+<div class="container">
+  <h3>Recommended Actions</h3>
+  <p>Recommended Actions will list an explanation of all recommended actions and their impact. It shows the general
+    recommendations we will provide on the website as well as our sources for all recommendations. Finally it will have
+    links to other actions and resources.</p>
   <!-- Checkbox Filters for Holistic Metrics and -->
+
   <div class="row">
-    <div class="column">
+    <div class="col-sm">
       <br>
       <h2> Filter by Holistic Community Metric</h2>
       <p>I want to see solutions that support: </p>
@@ -19,7 +23,7 @@
       <label for="filter4"> Building Community Resilience</label><br>
       <br>
     </div>
-    <div class="column">
+    <div class="col-sm">
       <br>
       <h2>Filter by Emissions Sector</h2>
       <p>I want to see solutions that reduce emissions from: </p>
@@ -37,15 +41,10 @@
     </div>
   </div>
 
-  <!--Filter Solutions-->
-<!-- </form>
-  <form action="xxx.php" method="post">
-</form> -->
-
   <p>List of Solutions Selected for your Community</p>
-  <!--TODO Display Recommendations Based on Filters and Emissions/Metrics Data-->
-</div> 
+</div>
+<!--TODO Display Recommendations Based on Filters and Emissions/Metrics Data-->
+</div>
 
 
-  {% endblock %}
-
+{% endblock %}
