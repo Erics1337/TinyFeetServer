@@ -53,7 +53,7 @@ def readTable(tableName):
         query = Waste.query.all()
     elif tableName == "otis_transportation":
         columnNames = Otis_transportation.__table__.columns.keys()
-        query = Cement_and_manufacturing.query.all()
+        query = Otis_transportation.query.all()
     elif tableName == "cement_and_manufacturing":
         columnNames = Cement_and_manufacturing.__table__.columns.keys()
         query = Cement_and_manufacturing.query.all()

@@ -1,0 +1,8 @@
+/*--------------Setup for Rows---------------------*/
+.row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 75%;
+  }

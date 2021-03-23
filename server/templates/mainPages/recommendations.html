@@ -3,80 +3,107 @@
 {% block content %}
 
 {# get_flashed_messages() is auto sent to the template with the flash() call #}
-{% for mess in get_flashed_messages()  %}
+{% for mess in get_flashed_messages() %}
 <!-- Message Banner -->
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close" class="fade close">
     <span aria-hidden="true">&times;</span>
   </button>
   {{mess}}
-  </div>
+</div>
 {% endfor %}
 
 <div class="container">
-<h3>Recommended Actions</h3>
-  <p>Recommended Actions will list an explanation of all recommended actions and their impact. It shows the general recommendations we will provide on the website as well as our sources for all recommendations. Finally it will have links to other actions and resources.</p>
+  <h3>Recommended Actions</h3>
+  <br>
+  <h6>Filter Descriptions</h6>
+  <ul>
+    <dt>Equity</dt>
+    <dd>This co-benefit will show solutions that can lessen the economic disparity across a community’s population.
+      These actions also expand access to transportation and energy. </dd>
+    <dt>Economic Sustainability</dt>
+    <dd>This co-benefit will display all solution types that are achievable financially in the long term for communities
+      with a stricter climate action plan budget. These actions also have the potential to generate profit.
+    </dd>
+    <dt>Local Environmental Quality</dt>
+    <dd>This co-benefit will show solutions that are centered on increasing health and cleanliness of local land, air
+      and water ecosystems.</dd>
+    <dt>Enhances Public Health & Safety</dt>
+    <dd>This co-benefit will display solutions that are geared towards improving physical well-being within the
+      community.</dd>
+    <dt>Builds Resilience</dt>
+    <dd>This co-benefit will show solutions that can improve a community’s ability to prepare for, adapt to and
+      withstand risks.</dd>
+    <dt>GHG Reduction Potential</dt>
+    <dd>GHG Reduction Potential is ranked on a scale from 1 to 4 (low, moderate, high, and very high).</dd>
+  </ul>
+  <br>
+  <p>The below filters allow you to filter solutions based on these co-benefits and their GHG reduction potential.</p>
   <p>To use the filtering, one box in Holistic Community Metric and one box in Emissions Sector must be checked.</p>
   <!-- Checkbox Filters for Holistic Metrics -->
 
   <div class="row">
     <div class="col-sm-5 col-md-6">
-      <h3>Filter by Holistic Community Metric</h3>
-      <p>I want to see solutions that support: </p>
-     </div>
-    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
       <h3>Filter by Emissions Sector</h3>
       <p>I want to see solutions that reduce emissions from: </p>
     </div>
+    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+      <h3>Filter by Community Co-benefit</h3>
+      <p>I want to see solutions that support: </p>
+    </div>
+
   </div>
   <form action="/recommendations" method="POST">
-  <div class="row">
-    <div class="col-sm-5 col-md-6">{{ form.allSol.label }}{{ form.allSol }}</div>
-    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">{{ form.allSec.label }}{{ form.allSec }}</div>
-  </div>
-  <div class="row">
-    <div class="col-sm-5 col-md-6">{{ form.equity.label }}{{ form.equity }}</div>
-    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">{{ form.transportation.label }}{{ form.transportation }}</div>
-  </div>
-  <div class="row">
-    <div class="col-sm-5 col-md-6">{{ form.econSus.label }}{{ form.econSus }}</div>
-    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">{{ form.energy.label }}{{ form.energy }}</div>
-  </div>
-  <div class="row">
-    <div class="col-sm-5 col-md-6">{{ form.envQuality.label }}{{ form.envQuality }}</div>
-    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">{{ form.waste.label }}{{ form.waste }}</div>
-  </div>
-  <div class="row">
-    <div class="col-sm-5 col-md-6">{{ form.healthSafety.label }}{{ form.healthSafety }}</div>
-  </div>
-  <div class="row">
-    <div class="col-sm-5 col-md-6">{{ form.resilience.label }}{{ form.resilience }}</div>
-  </div>
-  <div class="row">
-    <div class="col-sm-5 col-md-6">{{ form.submit }}</div>
-  </div>
+    <div class="row">
+      <div class="col-sm-5 col-md-6">{{ form.allSec.label }}{{ form.allSec }}</div>
+      <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">{{ form.allSol.label }}{{ form.allSol }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5 col-md-6">{{ form.transportation.label }}{{ form.transportation }}</div>
+      <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">{{ form.equity.label }}{{ form.equity }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5 col-md-6">{{ form.energy.label }}{{ form.energy }}</div>
+      <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">{{ form.econSus.label }}{{ form.econSus }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5 col-md-6">{{ form.waste.label }}{{ form.waste }}</div>
+      <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">{{ form.envQuality.label }}{{ form.envQuality }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5 col-md-6"></div>
+      <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">{{ form.healthSafety.label }}{{ form.healthSafety }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5 col-md-6"></div>
+      <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">{{ form.resilience.label }}{{ form.resilience }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5 col-md-6">{{ form.submit }}</div>
+    </div>
   </form>
-  
+  <br>
+  <br>
+
   {% if tableData %}
   <br>
   <h1>List of Recommendations Selected for your Community</h1>
   <table class="styled-table">
-      <tr>
-        {% for column in columnNames %}
-        <th>{{ column }}</th>
-        {% endfor %}
-      </tr>
-      {% for row in tableData %}
-        <tr>
-          {% for column in row %}
-            <td>{{ column }}</td>
-          {% endfor %}
-        </tr>
+    <tr>
+      {% for column in columnNames %}
+      <th>{{ column }}</th>
       {% endfor %}
-    </table>
-{% endif %}
+    </tr>
+    {% for row in tableData %}
+    <tr>
+      {% for column in row %}
+      <td>{{ column }}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
 
 </div>
 
 {% endblock %}
-

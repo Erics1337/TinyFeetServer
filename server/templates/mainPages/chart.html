@@ -1,130 +1,158 @@
-{% extends "helpers/base.html" %} 
-{% block title %} Compare Chart {% endblock %} 
+{% extends "helpers/base.html" %}
+{% block title %} Compare Chart {% endblock %}
 {%block header %}
 
 {% if chartData %}
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js" ></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-    google.charts.load("current", {packages:["corechart"]});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-      // Jinja "safe" filter prevents automatic html special character escaping
-      var data = google.visualization.arrayToDataTable( {{ chartData | safe }} );
+  google.charts.load("current", { packages: ["corechart"] });
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    // Jinja "safe" filter prevents automatic html special character escaping
+    var data = google.visualization.arrayToDataTable({{ chartData | safe }} );
 
-      var options = {
-        title: 'Sector GHG Emissions Data (mT CO2e/year) for {{ area | safe }}',
-        height: 500,
-        bar: { groupWidth: "95%" },
-        legend: { position: "side" },
-      };
+  var options = {
+    title: 'Sector GHG Emissions Data (mT CO2e/year) for {{ area | safe }}',
+    height: 500,
+    bar: { groupWidth: "95%" },
+    legend: { position: "side" },
+  };
 
-      var chart = new google.visualization.ColumnChart(document.getElementById('chart'));
-      chart.draw(data, options);
+  var chart = new google.visualization.ColumnChart(document.getElementById('chart'));
+  chart.draw(data, options);
     }
 </script>
-{% endif %} 
+{% endif %}
 
 {% if chartData2 %}
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js" ></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-    google.charts.load("current", {packages:["corechart"]});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-        // Jinja "safe" filter prevents automatic html special character escaping
-        var data1 = google.visualization.arrayToDataTable( {{ chartData1 | safe }} );
-        var data2 = google.visualization.arrayToDataTable( {{ chartData2 | safe }} );
+  google.charts.load("current", { packages: ["corechart"] });
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    // Jinja "safe" filter prevents automatic html special character escaping
+    var data1 = google.visualization.arrayToDataTable({{ chartData1 | safe }} );
+  var data2 = google.visualization.arrayToDataTable({{ chartData2 | safe }} );
 
 
-        var columnChart_options = {
-            title: 'Sector GHG Emissions Data (mT CO2e/year) for {{ area1 }} and {{ area2 }}',
-            height: 500,
-            legend: { position: "right" },
-            diff: { 
-            oldData: { opacity: 1,
-                 tooltip:{
-                    prefix:'{{ area1 | safe }}'
-                    } 
-                  }, 
-            newData: { 
-              opacity: .6, widthFactor: .6,
-                 tooltip:{
-                    prefix:'{{ area2 | safe }}'
-                    }
-                 }
-            }
-        };
-        // var pieChart_options = { 
-        //   'title':'Sector Emissions Data (Metric Tons/ Year) for {{ area }} and {{ area2 }}',
-        //              'height':500,
-        //   diff: { newData: { opacity: 0.8 } } };
+  var columnChart_options = {
+    title: 'Sector GHG Emissions Data (mT CO2e/year) for {{ area1 }} and {{ area2 }}',
+    height: 500,
+    legend: { position: "right" },
+    diff: {
+      oldData: {
+        opacity: 1,
+        tooltip: {
+          prefix: '{{ area1 | safe }}'
+        }
+      },
+      newData: {
+        opacity: .6, widthFactor: .6,
+        tooltip: {
+          prefix: '{{ area2 | safe }}'
+        }
+      }
+    }
+  };
+  // var pieChart_options = { 
+  //   'title':'Sector Emissions Data (Metric Tons/ Year) for {{ area }} and {{ area2 }}',
+  //              'height':500,
+  //   diff: { newData: { opacity: 0.8 } } };
 
-        var columnDiff = new google.visualization.ColumnChart(document.getElementById('columnChartDiff'));
-        var pieDiff = new google.visualization.PieChart(document.getElementById('pieChartDiff'));
+  var columnDiff = new google.visualization.ColumnChart(document.getElementById('columnChartDiff'));
+  var pieDiff = new google.visualization.PieChart(document.getElementById('pieChartDiff'));
 
-        var diffData = columnDiff.computeDiff(data1, data2);
-        columnDiff.draw(diffData, columnChart_options);
-        pieDiff.draw(diffData, columnChart_options)
+  var diffData = columnDiff.computeDiff(data1, data2);
+  columnDiff.draw(diffData, columnChart_options);
+  pieDiff.draw(diffData, columnChart_options)
 
     }
 </script>
 {% endif %}
 
-{% endblock %} 
-{% block content %} 
+{% endblock %}
+{% block content %}
 
 {# get_flashed_messages() is auto sent to the template with the flash() call #}
-{% for mess in get_flashed_messages()  %}
+{% for mess in get_flashed_messages() %}
 <!-- Message Banner -->
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close" class="fade close">
     <span aria-hidden="true">&times;</span>
   </button>
   {{mess}}
-  </div>
+</div>
 {% endfor %}
 
-  <div class="container">
-    {% if not compare %}
-    <h1>Chart Data For A Single Area</h1>
-    <form action="/emissions/chart" method="POST">
-      <br>
-      <div class="row">
-          {{ form.compareSubmit }}
-      </div>
-      <br>
-        <div class="row">
-            {{ form.csrf_token }}
-            <div class="col-md-4">{{ form.countyField.label }}<br>{{ form.countyField }}<br><br>{{ form.countySubmit }}<br></div>
-            <div class="col-md-4">{{ form.cityField.label }}<br>{{ form.cityField }}<br><br>{{ form.citySubmit }}<br></div>
-            <div class="col-md-4">{{ form.zipField.label }}<br>{{ form.zipField }}<br><br>{{ form.zipSubmit }}<br></div>
-        </div>
-    </form>
-
-    {% endif %}
-    {% if compare %}
-    <h1>Chart Data And Compare Two Areas</h1>
+<div class="container">
+  {% if not compare %}
+  <h1>Chart Data For A Single Area</h1>
+  <p>Enter the county, city, or zip code you're interested in reviewing a greenhouse gas estimation for.</p>
+  <p>Type in the municipality of interest or select it from any of the regional dropdown lists.</p>
+  <form action="/emissions/chart" method="POST">
     <br>
-    <form action="/emissions/chart" method="POST">
-      <div class="row">
-          {{ form.singleSubmit }}
+    <div class="row">
+      {{ form.compareSubmit }}
+    </div>
+    <br>
+    <div class="row">
+      {{ form.csrf_token }}
+      <div class="col-md-4">{{ form.countyField.label }}<br>{{ form.countyField }}<br><br>{{ form.countySubmit }}<br>
       </div>
-      <br>
-      <div class="row">
-          {{ form.csrf_token }}
-          <div class="col-md-4">{{ form.countyField.label }}<br>{{ form.countyField }}<br></div>
-          <div class="col-md-4">{{ form.cityField.label }}<br>{{ form.cityField }}<br></div>
-          <div class="col-md-4">{{ form.zipField.label }}<br>{{ form.zipField }}<br></div>
-      </div>
-      <div class="row">
-          <div class="col-md-4"><br>{{ form.countyField2 }}<br><br>{{ form.countyCompareSubmit }}<br></div>
-          <div class="col-md-4"><br>{{ form.cityField2 }}<br><br>{{ form.cityCompareSubmit }}<br></div>
-          <div class="col-md-4"><br>{{ form.zipField2 }}<br><br>{{ form.zipCompareSubmit }}<br></div>
-      </div>
-      <br>
+      <div class="col-md-4">{{ form.cityField.label }}<br>{{ form.cityField }}<br><br>{{ form.citySubmit }}<br></div>
+      <div class="col-md-4">{{ form.zipField.label }}<br>{{ form.zipField }}<br><br>{{ form.zipSubmit }}<br></div>
+    </div>
   </form>
-    {% endif %}
 
+  {% endif %}
+  {% if compare %}
+  <h1>Chart Data And Compare Two Areas</h1>
+  <br>
+  <form action="/emissions/chart" method="POST">
+    <div class="row">
+      {{ form.singleSubmit }}
+    </div>
+    <br>
+    <div class="row">
+      {{ form.csrf_token }}
+      <div class="col-md-4">{{ form.countyField.label }}<br>{{ form.countyField }}<br></div>
+      <div class="col-md-4">{{ form.cityField.label }}<br>{{ form.cityField }}<br></div>
+      <div class="col-md-4">{{ form.zipField.label }}<br>{{ form.zipField }}<br></div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"><br>{{ form.countyField2 }}<br><br>{{ form.countyCompareSubmit }}<br></div>
+      <div class="col-md-4"><br>{{ form.cityField2 }}<br><br>{{ form.cityCompareSubmit }}<br></div>
+      <div class="col-md-4"><br>{{ form.zipField2 }}<br><br>{{ form.zipCompareSubmit }}<br></div>
+    </div>
+    <div class="col-md-4">{{ form.cityField.label }}<br>{{ form.cityField }}<br><br>{{ form.citySubmit }}<br></div>
+    <div class="col-md-4">{{ form.zipField.label }}<br>{{ form.zipField }}<br><br>{{ form.zipSubmit }}<br></div>
+</div>
+</form>
+
+{% endif %}
+{% if compare %}
+<h1>Chart Data And Compare Two Areas</h1>
+<form action="/emissions/chart" method="POST">
+  <div class="row">
+    {{ form.singleSubmit }}
   </div>
+  <br>
+  <div class="row">
+    {{ form.csrf_token }}
+    <div class="col-md-4">{{ form.countyField.label }}<br>{{ form.countyField }}<br></div>
+    <div class="col-md-4">{{ form.cityField.label }}<br>{{ form.cityField }}<br></div>
+    <div class="col-md-4">{{ form.zipField.label }}<br>{{ form.zipField }}<br></div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"><br>{{ form.countyField2 }}<br><br>{{ form.countyCompareSubmit }}<br></div>
+    <div class="col-md-4"><br>{{ form.cityField2 }}<br><br>{{ form.cityCompareSubmit }}<br></div>
+    <div class="col-md-4"><br>{{ form.zipField2 }}<br><br>{{ form.zipCompareSubmit }}<br></div>
+  </div>
+  <br>
+</form>
+{% endif %}
+
+</div>
 
 {% if chartData %}
 <div class="container">
@@ -145,6 +173,7 @@
 
 <!-- My script, used for dynamic dropdown item switching -->
 <script src="{{ url_for('static', filename='scripts/dynamicOptions.js') }}"></script>
-
+<br>
+<br>
 
 {% endblock %}
