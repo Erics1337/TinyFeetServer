@@ -7,6 +7,7 @@
   #map {
     height: 90vh;
   }
+
   #legend {
     font-family: Arial, sans-serif;
     background: #fff;
@@ -20,14 +21,16 @@
     margin-top: 0;
   }
 
-  #infoWindow{
-    height:390px;
+  #infoWindow {
+    height: 390px;
   }
-  .infoWindowText{
+
+  .infoWindowText {
     font-size: 120%;
     text-align: center;
   }
-  #infoWindowHeader{
+
+  #infoWindowHeader {
     font-size: 150%;
   }
 
@@ -37,15 +40,14 @@
     color: #ededed;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
-
 </style>
 
 <div class="container">
   <h1>Emissions Data Visualized on Google Map</h1>
 
-  <p>Interactive map displays pie-chart data for every zip code region in Colorado</p> 
+  <p>Interactive map displays pie-chart data for every zip code region in Colorado</p>
 
-  <div id="map" ></div>
+  <div id="map"></div>
   <div id="legend"></div>
 
 
@@ -55,14 +57,16 @@
 <script src="{{ url_for('static', filename='map/zipMap.js') }}"></script>
 
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVO9N4Qdj5bxyyVo6B9QqGFfJxfOTHr3w&callback=initMap">
-</script>
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVO9N4Qdj5bxyyVo6B9QqGFfJxfOTHr3w&callback=initMap">
+  </script>
 
 <br>
 <br>
-<p>*Disclaimer* Certain zip code regions did not have publicly 
-  available data for certain sectors resulting in missing data for 
-  certain regions.</p>
+<div class="container">
+  <p>*Disclaimer* Certain zip code regions did not have publicly
+    available data for certain sectors resulting in missing data for
+    certain regions.</p>
+</div>
 <br>
 <br>
 <br>

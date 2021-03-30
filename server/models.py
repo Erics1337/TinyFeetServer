@@ -118,6 +118,7 @@ class Solutions(db.Model):
     subsection = db.Column(db.Text)
     solution_description = db.Column(db.Text)
     ghg_reduction_potential = db.Column(db.Integer)
+    co_benefit = db.Column(db.Text)
     
     equity = db.Column(db.Integer)
     economic_sustainability = db.Column(db.Integer)

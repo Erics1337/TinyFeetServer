@@ -209,18 +209,18 @@ def recommendations():
         # You can comment out the pop functions to help debug
         for row in query:
             d = object_as_dict(row)
-            # d.pop('recommendations_id')
-            # d.pop('equity')
-            # d.pop('economic_sustainability')
-            # d.pop('local_environmental_quality')
-            # d.pop('enhances_public_safety')
-            # d.pop('builds_resilience')
-            # d.pop('vech_tran')
-            # d.pop('energy')
-            # d.pop('waste')
+            d.pop('recommendations_id')
+            d.pop('equity')
+            d.pop('economic_sustainability')
+            d.pop('local_environmental_quality')
+            d.pop('enhances_public_safety')
+            d.pop('builds_resilience')
+            d.pop('vech_tran')
+            d.pop('energy')
+            d.pop('waste')
 
             # These columns are probably unneccesary.  We should also think about displaying the data in a way other than a table
-            # Like maybe a card with a picture or something
+            # Like maybe a card with a picture or something.
             # d.pop('section')
             # d.pop('subsection')
             # d.pop('ghg_reduction_potential')
