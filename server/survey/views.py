@@ -177,8 +177,7 @@ def recommendations():
                         Solutions.local_environmental_quality==envQuality,
                         Solutions.enhances_public_safety==healthSafety,
                         Solutions.builds_resilience==resilience,
-                        ))
-                        # .order_by(desc('ghg_reduction_potential'))
+                        )).order_by(desc('ghg_reduction_potential'))
 
 
 
@@ -195,8 +194,7 @@ def recommendations():
                         Solutions.vech_tran==vech_tran,
                         Solutions.energy==energy,
                         Solutions.waste==waste
-                        ))
-                        # .order_by(desc('ghg_reduction_potential'))
+                        )).order_by(desc('ghg_reduction_potential'))
         
         
         # Error check no results from query
@@ -225,12 +223,12 @@ def recommendations():
             # d.pop('subsection')
             # d.pop('ghg_reduction_potential')
 
-            tableData.append(d.values())
+            tableData.append(list(d.values()))
 
         # Column names are the dict keys
         columnNames = [column.replace("_", " ").capitalize() for column in d.keys()]
 
-        print(len(tableData))
+        # print(type(tableData[0]))
 
         # This is the POST return
         return render_template('/mainPages/recommendations.html', form=form, columnNames=columnNames, tableData=tableData)

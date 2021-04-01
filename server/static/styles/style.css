@@ -1,8 +1,202 @@
-/*--------------Setup for Rows---------------------*/
-.row {
-    display: flex;
+body{
+  background-image: url("../img/patternDustScratches.png");
+}
+body > div > div  {
+  background-color: white;
+}
+
+/* ----------------------------- Bootstrap Cards ---------------------------- */
+.card{
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  padding: 14px 80px 18px 36px;
+  cursor: pointer;
+}
+
+.card:hover{
+   transform: scale(1.05);
+box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.card h3{
+font-weight: 500;
+}
+
+.card{
+position: relative;
+top: 20px;
+right: 15px;
+max-height: 400px;
+min-height: 50px;
+max-width: 400px;
+min-width: 200px;
+background-repeat: no-repeat;
+background-position: right;
+background-size: 80px;
+margin: 20px;
+}
+
+@media(max-width: 990px){
+  .card{
+    margin: 20px;
+  }
+}
+
+/* --------------------------------- Tooltip -------------------------------- */
+.tooltip > .tooltip-inner {
+  background-color: #73AD21; 
+  color: #FFFFFF; 
+  border: 1px solid green; 
+  padding: 15px;
+  font-size: 15px;
+}
+
+
+/* ------------------------------ Team Section ------------------------------ */
+
+#madJack {
+  /* opacity: 0.5; */
+  position: relative;
+  right: 20px;
+  top: 20px;
+}
+
+#blaster {
+  /* opacity: 0.5; */
+  position: relative;
+  right: 10px;
+}
+
+.teamAbout{
+  position: relative; top: 100px;
+}
+
+#teamBanner {
+  border-radius: 10px;
+  background-color:rgba(56, 125, 56, 0.934);
+  color: #FFFFFF;
+}
+
+.team{
+  margin:40px;
+}
+
+.team-member {
+  margin: 15px 0;
+  padding: 0;
+}
+
+.team-member figure {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.team-member figure img {
+  min-width: 100%;
+}
+
+.team-member figcaption p {
+  font-size: 16px;
+}
+
+.team-member figcaption ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.team-member figcaption ul {
+  visibility: visible;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.team-member figcaption ul li {
+  display: inline-block;
+  padding: 10px;
+}
+
+.team-member h4 {
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.team-member figcaption {
+  padding: 30px;
+  color: transparent;
+  background-color: transparent;
+  position: absolute;
+  z-index: 996;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.team-member figure:hover figcaption {
+  visibility: visible;
+  color: #fff;
+  background: rgba(98, 162, 80, 0.9);
+  /* Primary color, can be changed via colors.css */
+  
+  height: 100%;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.team-member figure:hover figcaption ul li a:hover {
+  color: rgba(49, 49, 49, .97);
+}
+
+.team-member figure img {
+  -webkit-transform: scale(1) rotate(0) translateY(0);
+  -moz-transform: scale(1) rotate(0) translateY(0);
+  -o-transform: scale(1) rotate(0) translateY(0);
+  -ms-transform: scale(1) rotate(0) translateY(0);
+  transform: scale(1) rotate(0) translateY(0);
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.team-member figure:hover img {
+  -webkit-transform: scale(1.1) rotate(1deg) translateY(12px);
+  -moz-transform: scale(1.1) rotate(1deg) translateY(12px);
+  -o-transform: scale(1.1) rotate(1deg) translateY(12px);
+  -ms-transform: scale(1.1) rotate(1deg) translateY(12px);
+  transform: scale(1.1) rotate(1deg) translateY(12px);
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+/* --------------------------- Responsive Resizing -------------------------- */
+
+@media screen and (max-width: 991px) {
+  #madJack {
+    display: none;
   }
   
-  .column {
-    flex: 75%;
+  #blaster {
+    display: none;
   }
+  .teamAbout{
+    position: relative; top: -10px;
+  }
+}

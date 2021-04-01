@@ -1,5 +1,5 @@
 var geoPath = '../static/map/coloradoCountyGeo.json';
-var dataPathZip = '/emissions/getZipData';
+var dataPathZip = '/emissions/getCountyData';
 var dataPathCounty = '/emissions/getCountyData';
 
 
@@ -116,7 +116,7 @@ function convertToNum(item){
 function initMap() {
   // Initialize map
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 8,
+    zoom: 7.5,
     mapTypeControl: false,
     streetViewControl: false,
     styles: style
@@ -302,7 +302,6 @@ function initMap() {
     // Create content for info window
     var contentString = '<div id="infoWindow"><div id="siteNotice"></div>'+
       '<h2 id="infoWindowHeader" class="infoWindowText">County Name: ' + county + '</h2>'+
-      '<h3 class="infoWindowText">City: ' + city + '</h3>'+
       '<h3 class="infoWindowText">County: ' + county + '</h3>'+
       '<h3 class="infoWindowText">Population: ' + population2018 + '</h3>'+
 

@@ -94,8 +94,7 @@ class Zip_data(db.Model):
 
 class County_data(db.Model):
     __tablename__ = 'v_sectorAllTotalGHG_county'
-    city = db.Column(db.Text, primary_key=True)
-    county = db.Column(db.Text)
+    county = db.Column(db.Text, primary_key=True)
     population2018 = db.Column(db.Integer)
     cement_and_manufacturing = db.Column(db.Integer)
     waste = db.Column(db.Integer)

@@ -93,9 +93,11 @@ def readTable(tableName):
 # -------------------------------- Google Maps ------------------------------- #
 
 # For some reason, for google map to load it cannot be in top level directory
-@emissions_blueprint.route('/map')
+@emissions_blueprint.route('/map', methods=['GET', 'POST'])
 def googleMap():
-    return render_template('mainPages/map.html')
+    if request.method == 'POST':
+        return render_template('mainPages/mapCounty.html')
+    return render_template('mainPages/mapZip.html')
 
 
 @emissions_blueprint.route('/getZipData')
@@ -398,7 +400,6 @@ def chartCounty(county, county2=None):
         chartData = list(map(list, data.items()))
         chartData.insert(0, ['Sector', 'GHG Emissions'])
 
-        print(chartData)
 
         form.countyField.choices = [(row.county) for row in db.session.query(Zip_pop.county).distinct(Zip_pop.county).order_by(Zip_pop.county)]
         form.cityField.choices = ["Select Option"] + [(row.city) for row in db.session.query(Zip_pop.city).filter_by(county=county).distinct(Zip_pop.county).order_by(Zip_pop.city)]

@@ -13,10 +13,9 @@
 {% endfor %}
 <div class="container">
 
-<h1>Read Database Entries</h1>
 
-<h2>Choose a Sector Table:</h2>
-<div id="row">
+<div class="shadow p-3 mb-5 bg-body rounded">
+<h1>View Database Entries</h1>
   <div class="col-sm-5 col-md-6">
   <form action="/emissions/read" method="POST" name="readForm">
     {{ form.csrf_token }}
@@ -25,21 +24,21 @@
   </form>
 </div>
 <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+  <br>
     {% if tableData %}
     <form action="../../static/data/spreadsheets/{{ tableName }}.xls">
       <button type="submit" class="btn btn-primary">Download Data</button>
-  </form>  
+  </form>
+  <br>
   {% else %}
-  <h2>Or Download all Data</h2>
+  <h3>Or Download all Data</h3>
   <form action="../../static/data/spreadsheets/allGhgData.xls">
     <button type="submit" class="btn btn-primary">Download All Data</button>
   </form>
+  <br>
   {% endif %}
 
 </div>
-
-</div>
-
 
 
 {% if tableData %}
@@ -58,6 +57,7 @@
         </tr>
       {% endfor %}
     </table>
+</div>
 </div>
 {% endif %}
 

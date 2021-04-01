@@ -64,7 +64,7 @@
 
   var diffData = columnDiff.computeDiff(data1, data2);
   columnDiff.draw(diffData, columnChart_options);
-  pieDiff.draw(diffData, columnChart_options)
+  pieDiff.draw(diffData, columnChart_options);
 
     }
 </script>
@@ -85,13 +85,12 @@
 {% endfor %}
 
 <div class="container">
+  <div class="justify-content-center shadow p-3 mb-5 bg-body rounded"> 
   {% if not compare %}
   <h1>Chart Data For A Single Area</h1>
-  <p>Enter the county, city, or zip code you're interested in reviewing a greenhouse gas estimation for.</p>
-  <p>Type in the municipality of interest or select it from any of the regional dropdown lists.</p>
   <form action="/emissions/chart" method="POST">
     <br>
-    <div class="row">
+    <div class="col-md-4">
       {{ form.compareSubmit }}
     </div>
     <br>
@@ -102,38 +101,15 @@
       <div class="col-md-4">{{ form.cityField.label }}<br>{{ form.cityField }}<br><br>{{ form.citySubmit }}<br></div>
       <div class="col-md-4">{{ form.zipField.label }}<br>{{ form.zipField }}<br><br>{{ form.zipSubmit }}<br></div>
     </div>
-  </form>
-
-  {% endif %}
-  {% if compare %}
-  <h1>Chart Data And Compare Two Areas</h1>
-  <br>
-  <form action="/emissions/chart" method="POST">
-    <div class="row">
-      {{ form.singleSubmit }}
-    </div>
     <br>
-    <div class="row">
-      {{ form.csrf_token }}
-      <div class="col-md-4">{{ form.countyField.label }}<br>{{ form.countyField }}<br></div>
-      <div class="col-md-4">{{ form.cityField.label }}<br>{{ form.cityField }}<br></div>
-      <div class="col-md-4">{{ form.zipField.label }}<br>{{ form.zipField }}<br></div>
-    </div>
-    <div class="row">
-      <div class="col-md-4"><br>{{ form.countyField2 }}<br><br>{{ form.countyCompareSubmit }}<br></div>
-      <div class="col-md-4"><br>{{ form.cityField2 }}<br><br>{{ form.cityCompareSubmit }}<br></div>
-      <div class="col-md-4"><br>{{ form.zipField2 }}<br><br>{{ form.zipCompareSubmit }}<br></div>
-    </div>
-    <div class="col-md-4">{{ form.cityField.label }}<br>{{ form.cityField }}<br><br>{{ form.citySubmit }}<br></div>
-    <div class="col-md-4">{{ form.zipField.label }}<br>{{ form.zipField }}<br><br>{{ form.zipSubmit }}<br></div>
-</div>
-</form>
+  </form>
 
 {% endif %}
 {% if compare %}
 <h1>Chart Data And Compare Two Areas</h1>
 <form action="/emissions/chart" method="POST">
-  <div class="row">
+  <br>
+  <div class="col-md-4">
     {{ form.singleSubmit }}
   </div>
   <br>
@@ -152,25 +128,21 @@
 </form>
 {% endif %}
 
-</div>
 
 {% if chartData %}
-<div class="container">
   <br>
   <h3>All Sector GHG Data Chart</h3>
   <div id="chart"></div>
-</div>
 {% endif %}
 
 {% if chartData1 %}
-<div class="container">
+  <div class="container ">
   <br>
   <h3>All Sector GHG Data Chart</h3>
   <div id="columnChartDiff"></div>
   <div id="pieChartDiff"></div>
-</div>
 {% endif %}
-
+</div>
 <!-- My script, used for dynamic dropdown item switching -->
 <script src="{{ url_for('static', filename='scripts/dynamicOptions.js') }}"></script>
 <br>

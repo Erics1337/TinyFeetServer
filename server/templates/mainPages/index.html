@@ -2,18 +2,16 @@
 {% block title %} Home {% endblock %}
 {% block navbar %}{% endblock%}
 {% block content %}
+
 <div class="container">
-  <center>
+  <div class="shadow p-3 mb-5 bg-body rounded">
+  <span class="text-center">
     <h1>Tiny Feet Climate Action Planning (CAP)</h1>
     <h2>Toolkit for Communities</h2>
-    <h3 style="color:red;">NOTE: This is a beta testing website.</h3>
-    <p style="color:red;">Please use the website as you would and make note of what works, doesn't work and what
-      improvements you believe we could make to improve the web app!</p>
-    <p style="color:red;">In the feedback tab there is a link to a feedback survey as well as a list of the bugs we are
-      currently working on fixing.</p>
-    <p style="color:red;">Thank you so much for your help and feedback!</p>
-  </center>
+  </span>
   <br>
+  <div class="shadow p-3 mb-5 bg-body rounded">
+
   <h4>Project Description</h4>
   <p>The goal of the Tiny Feet Toolkit is to help communities kickstart the Climate Action Plan (CAP) process. A CAP is
     a set of solutions and guidelines communities will follow to help reduce their carbon footprint. The initial phase
@@ -26,7 +24,8 @@
     communities to use the toolkit to help ease their path in creating their CAP.</p>
   <p>*Disclaimer* The data displayed is an estimation intended to help user in the initiating their CAP process. The
     information provided by the toolkit is NOT a comprehensive emissions inventory for the selected area.</p>
-  <br>
+  </div>
+  <div class="shadow p-3 mb-5 bg-body rounded">
   <h4>Why is creating a community Climate Action Plan important in reducing global warming?</h4>
   <p>The UN Environment Program and the Intergovernmental Panel on Climate Change (IPCC) advise that global greenhouse
     gas (GHG) emissions need to be cut by over half by 2030 in order to keep warming below a 1.5° C threshold, a
@@ -39,7 +38,8 @@
     limiting the effects of global warming, CAPs need to increase drastically both in number and in effectivity.
     Simultaneously the effects of climate change and inequity are demanding immediate attention which GHG emissions
     reductions goals alone often fail to prioritize.</p>
-  <br>
+  </div>
+  <div class="shadow p-3 mb-5 bg-body rounded">
   <h4>User Description</h4>
   <p>The toolkit is designed to allow the users to select the county, city, or zip-code of interest within Colorado. The
     data is available in three different views. The first view is a map showing the average GHG emissions per person in
@@ -51,78 +51,153 @@
     particular actions.</p>
   <p>*Disclaimer* The data displayed is an estimation intended to help user in the initiating their CAP process. The
     information provided by the toolkit is NOT a comprehensive emissions inventory for the selected area.</p>
-  <br>
+  </div>
   <!-- <h6>Instruction: Recommendation's Page</h6>
   <p>1. Click on the check boxes to decide what types of data you would like to see. Select from the metrics and/or
     sectors of emissions.</p>
   <p>2. Click on the select all options to look at the full list of recommendations.</p>
   <br> -->
-  <center><img src="../static/img/User_Flow.jpg" alt="User Flow" style="width:100%;"></center>
+  <div class="justify-content-center"><img src="../static/img/User_Flow.jpg" alt="User Flow" style="width:100%;"></div>
   <br>
-  <h4>About Our Team</h4>
-  <p>Our team is a collaboration of students from Western Colorado University and Colorado School of Mines.</p>
-  <p><b>Valeda Scribner</b></p>
-  <!-- <img src="../static/img/valeda.jpg" alt="Valeda" width="400"/> -->
-  <p>After 15 years as an aerospace engineer and program manager building, testing, and launching satellites, Valeda
-    shifted her career focus to contribute to the pressing issue of climate change. She enrolled at Western Colorado
-    University to join their Master of Environmental Management program with a focus in Sustainable and Resilient
-    Communities. She assisted Eagle County with emissions forecasting of climate actions and updated Park City’s
-    emissions inventory. These efforts highlighted the cost, effort duration of a standard GHG emissions inventory and
-    thus the concept of the Tiny Feet CAP toolkit emerged.</p>
-  <br>
-  <p><b>Eric Swanson</b></p>
-  <!-- <div id="center"><img src="../static/img/eric.jpg" alt="Eric" width="200"></div> -->
-  <p>Eric is a non-traditional student studying Computer Science at Western Colorado University who has a bachelors in
-    Media and Communications.</p>
-  <br>
-  <p><b>Caroline Hidalgo</b></p>
-  <!-- <div id="center"><img src="../static/img/caroline.jpg" alt="Caroline" width="200"></div> -->
-  <p>Caroline Hidalgo is pursuing a degree in Electrical Engineering B.S. at Colorado School of Mines. Her emphasis area
-    covered Antennas and Wireless Communications, which is where her focus will lie moving forward after graduation.</p>
-  <br>
-  <br>
-  <p><b>Heather Keniry</b></p>
-  <!-- <div id="center"><img src="../static/img/heather.jpg" alt="Heather" width="200"></div> -->
-  <p>Heather Keniry is currently a senior at Colorado School of Mines majoring in Mechanical Engineering with a minor in
-    Computer Science specializing in Robotics and Artificial Intelligence. Outside of school she enjoys running,
-    backpacking and reading.</p>
-  <br>
-  <br>
-  <p><b>April Lyndon</b></p>
-  <!-- <div id="center"><img src="../static/img/april.jpg" alt="April" width="200"></div> -->
-  <p>April Lyndon is pursuing a degree in Mechanical Engineering and a minor in Economics at Colorado School of Mines.
-  </p>
-  <br>
-  <br>
-  <p><b>Perla Lyon</b></p>
-  <!-- <div id="center"><img src="../static/img/perla.jpg" alt="Perla" width="200"></div> -->
-  <p>Perla Lyon is a senior Environmental Engineering student. She has work experience in various areas, including
-    customer service and business. In her free time, she enjoys hiking, traveling, and camping. She is passionate about
-    the outdoors, plants and is always looking for new challenges.</p>
-  <br>
-  <p><b>Gillian Yost</b></p>
-  <!-- <div id="center"><img src="../static/img/gillian.png" alt="Gillian" width="200"></div> -->
-  <p>Gillian Yost is currently a senior at Colorado School of Mines where she is majoring in Electrical Engineering with
-    double minors in Computer Science and Public Affairs.</p>
-  <br>
-  <p><b>Kathie Zhang</b></p>
-  <!-- <div id="center"><img src="../static/img/kathie.jpg" alt="Kathie" width="200"></div> -->
-  <p>Kathie Zhang is pursuing a Mechanical Engineering B.S. at Colorado School of Mines. Outside of school, her favorite
-    pastime is to get some boba (Tapioca Drink) with her friends.</p>
-  <br>
-  <div class="row">
-    <div class="col-sm-5">
-      <div id="center">
-        <p>Valeda and Eric...</p>
+
+<!-- ---------------------------- Team Section ----------------------------- -->
+
+  <div id="team" class="team content-section shadow p-3 mb-5 bg-body rounded">
+
+      <div class="row text-center teamAbout">
+      <div class="col-md-4">
+        <img src="{{ url_for('static', filename='img/madJack.png') }}" alt="Western Logo" height="160px" id="madJack">
       </div>
-      <div id="center"><img src="../static/img/madJack.png" alt="Western Logo" width="200"></div>
-    </div>
-    <div class="col-sm-5 offset-sm-2">
-      <div id="center">
-        <p>The 30 Percent Senior Design Team...</p>
+      <div class="col-md-4">
+        <h1 id="teamAbout">About Our Team</h1>
       </div>
-      <div id="center"><img src="../static/img/blasterSmall.png" alt="Blaster Logo" width="200"></div>
-    </div>
+      <div class="col-md-4">
+        <img src="{{ url_for('static', filename='img/blaster.jpeg') }}" alt="Mines Logo" height="210px" id="blaster">
+      </div>
+      </div>
+          
+        <div class="col-md-6 offset-md-3 text-center" id="teamBanner">
+          <strong>Our team is a collaboration of students from Western Colorado University and Colorado School of Mines.</strong>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+          <div class="row">
+
+            <div class="col-md-4">
+              <div class="team-member">
+                <figure>
+                  <img src="{{ url_for('static', filename='img/teamPhotos/valeda.jpeg') }}" alt="Valeda" width="200" class="image-responsive">
+                  <figcaption>
+                    <p style="font-size: 11px;">After 15 years as an aerospace engineer and program manager building, testing, and launching satellites, Valeda
+                      shifted her career focus to contribute to the pressing issue of climate change. She enrolled at Western Colorado
+                      University to join their Master of Environmental Management program with a focus in Sustainable and Resilient
+                      Communities. She assisted Eagle County with emissions forecasting of climate actions and updated Park City’s
+                      emissions inventory. These efforts highlighted the cost, effort duration of a standard GHG emissions inventory and
+                      thus the concept of the Tiny Feet CAP toolkit emerged.</p>
+                  </figcaption>
+                </figure>
+                <h4>Valeda Scribner</h4>
+                <p>Masters of Environmental Management</p>
+              </div><!-- /.team-member-->
+            </div><!-- /.col-md-4 -->
+  
+            <div class="col-md-4">
+              <div class="team-member">
+                <figure>
+                  <img src="{{ url_for('static', filename='img/teamPhotos/eric.jpeg') }}" alt="Eric" width="200" class="image-responsive">
+                  <figcaption>
+                    <p>Eric is a non-traditional student studying Computer Science at Western Colorado University who holds a bachelors in
+                    Media and Communications.</p>
+                  </figcaption>
+                </figure>
+                <h4>Eric Swanson</h4>
+                <p>Bachelors of Computer Science</p>
+              </div><!-- /.team-member-->
+            </div><!-- /.col-md-4 -->
+          
+            <div class="col-md-4">
+              <div class="team-member">
+                <figure>
+                  <img src="{{ url_for('static', filename='img/teamPhotos/template.jpg') }}" alt="Caroline" width="200" class="image-responsive">
+                  <figcaption>
+                    <p>Caroline Hidalgo is pursuing a degree in Electrical Engineering B.S. at Colorado School of Mines. Her emphasis area
+                      covered Antennas and Wireless Communications, which is where her focus will lie moving forward after graduation.</p>
+                  </figcaption>
+                </figure>
+                <h4>Caroline Hidalgo</h4>
+              </div><!-- /.team-member-->
+            </div><!-- /.col-md-4 -->
+
+            <div class="col-md-4">
+              <div class="team-member">
+                <figure>
+                  <img src="{{ url_for('static', filename='img/teamPhotos/template.jpg') }}" alt="Heather" width="200" class="image-responsive">
+                  <figcaption>
+                    <p>Heather Keniry is currently a senior at Colorado School of Mines majoring in Mechanical Engineering with a minor in
+                      Computer Science specializing in Robotics and Artificial Intelligence. Outside of school she enjoys running,
+                      backpacking and reading.</p>
+                  </figcaption>
+                </figure>
+                <h4>Heather Keniry</h4>
+              </div><!-- /.team-member-->
+            </div><!-- /.col-md-4 -->
+
+            <div class="col-md-4">
+              <div class="team-member">
+                <figure>
+                  <img src="{{ url_for('static', filename='img/teamPhotos/template.jpg') }}" alt="April" width="200" class="image-responsive">
+                  <figcaption>
+                    <p>April Lyndon is pursuing a degree in Mechanical Engineering and a minor in Economics at Colorado School of Mines.</p>
+                  </figcaption>
+                </figure>
+                <h4>April Lyndon</h4>
+              </div><!-- /.team-member-->
+            </div><!-- /.col-md-4 -->
+
+            <div class="col-md-4">
+              <div class="team-member">
+                <figure>
+                  <img src="{{ url_for('static', filename='img/teamPhotos/template.jpg') }}" alt="Perla" width="200" class="image-responsive">
+                  <figcaption>
+                    <p>Perla Lyon is a senior Environmental Engineering student. She has work experience in various areas, including
+                      customer service and business. In her free time, she enjoys hiking, traveling, and camping. She is passionate about
+                      the outdoors, plants and is always looking for new challenges.</p>
+                  </figcaption>
+                </figure>
+                <h4>Perla Lyon</h4>
+              </div><!-- /.team-member-->
+            </div><!-- /.col-md-4 -->
+
+            <div class="col-md-4">
+              <div class="team-member">
+                <figure>
+                  <img src="{{ url_for('static', filename='img/teamPhotos/template.jpg') }}" alt="Gillian" width="200" class="image-responsive">
+                  <figcaption>
+                    <p>Gillian Yost is currently a senior at Colorado School of Mines where she is majoring in Electrical Engineering with
+                      double minors in Computer Science and Public Affairs.</p>
+                  </figcaption>
+                </figure>
+                <h4>Gillian Yost</h4>
+              </div><!-- /.team-member-->
+            </div><!-- /.col-md-4 -->
+
+            <div class="col-md-4">
+              <div class="team-member">
+                <figure>
+                  <img src="{{ url_for('static', filename='img/teamPhotos/template.jpg') }}" alt="Kathie" width="200" class="image-responsive">
+                  <figcaption>
+                    <p>Kathie Zhang is pursuing a Mechanical Engineering B.S. at Colorado School of Mines. Outside of school, her favorite
+                      pastime is to get some boba (Tapioca Drink) with her friends.</p>
+                  </figcaption>
+                </figure>
+                <h4>Kathie Zhang</h4>
+              </div><!-- /.team-member-->
+            </div><!-- /.col-md-4 -->
+  
+          </div><!-- /.row -->
+        </div><!-- /.container -->
   </div>
 </div>
 <br>
