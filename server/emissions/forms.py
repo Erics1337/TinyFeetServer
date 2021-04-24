@@ -15,6 +15,9 @@ class CityCountyZipDropDown(FlaskForm):
 
     compareSubmit = SubmitField('Compare Two Areas')
     singleSubmit = SubmitField('Select a Single Area')
+    clearCompareSubmit = SubmitField('Clear Fields')
+    clearSingleSubmit = SubmitField('Clear Fields')
+
 
     countyCompareSubmit = SubmitField('Compare these Counties')
     cityCompareSubmit = SubmitField('Compare these Cities')

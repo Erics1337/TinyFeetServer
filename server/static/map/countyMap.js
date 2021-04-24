@@ -8,7 +8,7 @@ var CO2ePerPop;
 var dataObj = {};
  
 /* -------------------- Map Styling including alternate style ------------------- */
-var colorScale = {'#6C001D': 2000, '#DB0006': 200, '#FD990A': 100, '#FECB6C': 70, '#FFFF0D': 60, '#FFFFB0': 50, '#C8FF60': 40, '#8AE407': 30, '#5F9D05': 20, '#3C6104': 10}
+var colorScale = {'#6C001D': 400, '#DB0006': 200, '#FD990A': 100, '#FECB6C': 70, '#FFFF0D': 60, '#FFFFB0': 50, '#C8FF60': 40, '#8AE407': 30, '#5F9D05': 20, '#3C6104': 10}
 // var colorScale = {'#3C6104': 10, '#5F9D05': 20, '#8AE407': 30, '#C8FF60': 40, '#FFFFB0': 50, '#FFFF0D': 60, '#FECB6C': 70, '#FD990A': 100, '#DB0006': 200, '#6C001D': 2000}
 
 
@@ -220,7 +220,6 @@ function initMap() {
   function createInfoWindow(map, event){
 
     // Get properties from Data Layer to populate info window
-    var city = "Unknown";
     var county = "Unknown";
     var population2018 = "Unknown";
     var transportation_PV_diesel = "Unknown";
@@ -267,11 +266,14 @@ function initMap() {
         transportation_trucks_gas+
         aviation;
   
-      var energyTotal = electricity_commercial+
-        electricity_industrial+
-        electricity_residential+
-        naturalGas_commercial+
-        naturalGas_industrial+
+        var electricityTotal =
+        electricity_commercial +
+        electricity_industrial +
+        electricity_residential;
+
+      var naturalGasTotal = 
+        naturalGas_commercial +
+        naturalGas_industrial +
         naturalGas_residential;
   
       var wasteTotal = waste+
@@ -366,7 +368,8 @@ function initMap() {
       var data = google.visualization.arrayToDataTable([
         ['Sector', 'Metric Tons CO2e/ Year'],
         ['Transportation', convertToNum(transportationTotal)],
-        ['Energy', convertToNum(energyTotal)],
+        ["Electricity", convertToNum(electricityTotal)],
+        ["Natural Gas", convertToNum(naturalGasTotal)],
         ['Waste', convertToNum(wasteTotal)]
       ]);
       

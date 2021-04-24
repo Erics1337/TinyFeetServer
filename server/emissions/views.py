@@ -22,74 +22,6 @@ def object_as_dict(obj):
         for c in inspect(obj).mapper.column_attrs}
 
 
-# ------------------------------ Read page route ----------------------------- #
-
-@emissions_blueprint.route('/read', methods=['GET', 'POST'])
-def read():
-    form = tableSelectForm()
-
-    if request.method == 'POST':
-        tableName = form.tables.data
-        print(tableName)
-        if tableName == "Select A Table To Read":
-            flash("Please Select A Table To Read")
-        # Redirect with POST
-        # elif form.download.data:
-        #     return redirect(f'read/{tableName}', code=307)
-        else:
-            tableName = form.tables.data
-            return redirect(f'/emissions/read/{tableName}')
-
-    form.tables.data = "Select A Table to Read"
-    return render_template('/mainPages/read.html', form=form)
-
-
-@emissions_blueprint.route('/read/<tableName>', methods=['GET', 'POST'])
-def readTable(tableName):
-    form = tableSelectForm()
-
-    if tableName == "waste":
-        columnNames = Waste.__table__.columns.keys()
-        query = Waste.query.all()
-    elif tableName == "otis_transportation":
-        columnNames = Otis_transportation.__table__.columns.keys()
-        query = Otis_transportation.query.all()
-    elif tableName == "cement_and_manufacturing":
-        columnNames = Cement_and_manufacturing.__table__.columns.keys()
-        query = Cement_and_manufacturing.query.all()
-    elif tableName == "electricity":
-        columnNames = Electricity.__table__.columns.keys()
-        query = Electricity.query.all()
-    elif tableName == "natural_gas":
-        columnNames = Natural_gas.__table__.columns.keys()
-        query = Natural_gas.query.all()
-    elif tableName == "zip_pop":
-        columnNames = Zip_pop.__table__.columns.keys()
-        query = Zip_pop.query.all()
-    elif tableName == "aviation":
-        columnNames = Aviation.__table__.columns.keys()
-        query = Aviation.query.all()
-    else:
-        flash("Table Name Not Recognized")
-        return redirect(url_for('emissions.read'))
-
-    tableData = []
-    for row in query:
-        d = object_as_dict(row)
-        tableData.append(d.values())
-
-    # Convert data to excel and download
-    # if request.method == 'POST':
-    #     tableData.insert(0, columnNames)
-    #     print(tableData)
-    #     # return excel.make_response_from_array([[1, 2], [3, 4]], "csv", file_name="export_data")
-    #     # return excel.make_response_from_array(tableData, "csv", file_name=f"{tableName}")
-
-
-    form.tables.data = tableName
-    return render_template('/mainPages/read.html', form=form, tableName=tableName, columnNames=columnNames, tableData=tableData)
-
-
 # -------------------------------- Google Maps ------------------------------- #
 
 # For some reason, for google map to load it cannot be in top level directory
@@ -154,9 +86,9 @@ def chart():
     
     # Single select case
     if request.method == 'POST':
-        if form.singleSubmit.data:
+        if form.singleSubmit.data or form.clearSingleSubmit.data:
             pass
-        elif form.compareSubmit.data:
+        elif form.compareSubmit.data or form.clearCompareSubmit.data:
 
             form.countyField.choices = ["Select Option"] + [(row.county) for row in db.session.query(Zip_pop.county).distinct(Zip_pop.county).order_by(Zip_pop.county)]
             form.cityField.choices = ["Select Option"] + [(row.city) for row in db.session.query(Zip_pop.city).distinct(Zip_pop.city).order_by(Zip_pop.city)]
@@ -165,6 +97,14 @@ def chart():
             form.countyField2.choices = ["Select Option"] + [(row.county) for row in db.session.query(Zip_pop.county).distinct(Zip_pop.county).order_by(Zip_pop.county)]
             form.cityField2.choices = ["Select Option"] + [(row.city) for row in db.session.query(Zip_pop.city).distinct(Zip_pop.city).order_by(Zip_pop.city)]
             form.zipField2.choices = ["Select Option"] + [(row.zip) for row in db.session.query(Zip_pop.zip).distinct(Zip_pop.zip).order_by(Zip_pop.zip)]
+
+            if form.clearCompareSubmit.data:
+                form.countyField.data = ["Select Option"]
+                form.cityField.data = ["Select Option"]
+                form.zipField.data = ["Select Option"]
+                form.countyField2.data = ["Select Option"]
+                form.cityField2.data = ["Select Option"]
+                form.zipField2.data = ["Select Option"]
 
             return render_template('mainPages/chart.html', form=form, compare=True)
 
@@ -215,11 +155,8 @@ def chart():
         form.cityField.choices = ["Select Option"] + [(row.city) for row in db.session.query(Zip_pop.city).distinct(Zip_pop.city).order_by(Zip_pop.city)]
         form.zipField.choices = ["Select Option"] + [(row.zip) for row in db.session.query(Zip_pop.zip).distinct(Zip_pop.zip).order_by(Zip_pop.zip)]
 
-        form.countyField2.choices = ["Select Option"] + [(row.county) for row in db.session.query(Zip_pop.county).distinct(Zip_pop.county).order_by(Zip_pop.county)]
-        form.cityField2.choices = ["Select Option"] + [(row.city) for row in db.session.query(Zip_pop.city).distinct(Zip_pop.city).order_by(Zip_pop.city)]
-        form.zipField2.choices = ["Select Option"] + [(row.zip) for row in db.session.query(Zip_pop.zip).distinct(Zip_pop.zip).order_by(Zip_pop.zip)]
-
     return render_template('mainPages/chart.html', form=form)
+
 
 
 # -------------------------- Route to handle zip uri variable(s) and compare two zip codes ------------------------- #

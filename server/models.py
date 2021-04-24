@@ -92,6 +92,24 @@ class Zip_data(db.Model):
     transportation_trucks_diesel = db.Column(db.Integer)
     aviation = db.Column(db.Integer)
 
+class City_data(db.Model):
+    __tablename__ = 'v_sectorAllTotalGHG_city'
+    city = db.Column(db.Text, primary_key=True)
+    county = db.Column(db.Text)
+    cement_and_manufacturing = db.Column(db.Integer)
+    waste = db.Column(db.Integer)
+    electricity_commercial = db.Column(db.Integer)
+    electricity_industrial = db.Column(db.Integer)
+    electricity_residential = db.Column(db.Integer)
+    naturalGas_commercial = db.Column(db.Integer)
+    naturalGas_industrial = db.Column(db.Integer)
+    naturalGas_residential = db.Column(db.Integer)
+    transportation_PV_gas = db.Column(db.Integer)
+    transportation_PV_diesel = db.Column(db.Integer)
+    transportation_trucks_gas = db.Column(db.Integer)
+    transportation_trucks_diesel = db.Column(db.Integer)
+    aviation = db.Column(db.Integer)
+
 class County_data(db.Model):
     __tablename__ = 'v_sectorAllTotalGHG_county'
     county = db.Column(db.Text, primary_key=True)
@@ -111,23 +129,33 @@ class County_data(db.Model):
     aviation = db.Column(db.Integer)
 
 class Solutions(db.Model):
-    __tablename__ = 'recommendations'
-    recommendations_id = db.Column(db.Integer, primary_key=True)
+    __tablename__ = 'solutions'
+    ID = db.Column(db.Integer, primary_key=True)
     section = db.Column(db.Text)
-    subsection = db.Column(db.Text)
+    subsection_label = db.Column(db.Text)
     solution_description = db.Column(db.Text)
     ghg_reduction_potential = db.Column(db.Integer)
-    co_benefit = db.Column(db.Text)
-    
+
+    electricity_commercial = db.Column(db.Integer)
+    electricity_industrial = db.Column(db.Integer)
+    electricity_residential = db.Column(db.Integer)
+    naturalGas_commercial = db.Column(db.Integer)
+    naturalGas_industrial = db.Column(db.Integer)
+    naturalGas_residential = db.Column(db.Integer)
+    transportation_PV_gas = db.Column(db.Integer)
+    transportation_PV_diesel = db.Column(db.Integer)
+    transportation_trucks_gas = db.Column(db.Integer)
+    transportation_trucks_diesel = db.Column(db.Integer)
+    aviation = db.Column(db.Integer)
+    waste = db.Column(db.Integer)
+    cement_and_manufacturing = db.Column(db.Integer)
+
     equity = db.Column(db.Integer)
     economic_sustainability = db.Column(db.Integer)
     local_environmental_quality = db.Column(db.Integer)
     enhances_public_safety = db.Column(db.Integer)
     builds_resilience = db.Column(db.Integer)
 
-    vech_tran = db.Column(db.Integer)
-    energy = db.Column(db.Integer)
-    waste = db.Column(db.Integer)
 
 # ---------- Marshmallow schema class to serialize data --------- #
 class Zip_Data_Schema(ma.SQLAlchemyAutoSchema):

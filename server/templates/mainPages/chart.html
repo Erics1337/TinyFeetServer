@@ -88,10 +88,13 @@
   <div class="justify-content-center shadow p-3 mb-5 bg-body rounded"> 
   {% if not compare %}
   <h1>Chart Data For A Single Area</h1>
+  <p>When an region of highest location granularity is chosen from a dropdown menu, the regions of lower granularity are updated with their associated sub-regions</p>
   <form action="/emissions/chart" method="POST">
     <br>
     <div class="col-md-4">
       {{ form.compareSubmit }}
+      {{ form.clearSingleSubmit }}
+
     </div>
     <br>
     <div class="row">
@@ -107,10 +110,14 @@
 {% endif %}
 {% if compare %}
 <h1>Chart Data And Compare Two Areas</h1>
+  <p>When an region of highest location granularity is chosen from a dropdown menu, the regions of lower granularity are updated with their associated sub-regions</p>
+
 <form action="/emissions/chart" method="POST">
   <br>
   <div class="col-md-4">
     {{ form.singleSubmit }}
+    {{ form.clearCompareSubmit }}
+
   </div>
   <br>
   <div class="row">

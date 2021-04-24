@@ -22,9 +22,5 @@ ma = Marshmallow(app)
 from server.emissions.views import emissions_blueprint
 app.register_blueprint(emissions_blueprint,url_prefix="/emissions")
 
-from server.survey.views import survey_blueprint
-app.register_blueprint(survey_blueprint,url_prefix="")
-
-
-# from server.registration.views import registration_blueprint
-# app.register_blueprint(registration_blueprint,url_prefix="/registration")
+from server.solutions.views import solutions_blueprint
+app.register_blueprint(solutions_blueprint,url_prefix="")

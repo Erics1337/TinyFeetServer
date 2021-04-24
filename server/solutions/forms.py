@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import SelectField, SubmitField, BooleanField
+from wtforms import SelectField, SubmitField, BooleanField, RadioField, TextField
 
 
 class RecForm(FlaskForm):
@@ -15,8 +15,8 @@ class RecForm(FlaskForm):
     energy = BooleanField('Energy')
     waste = BooleanField('Waste and Land Management')
 
-    # cementMan = BooleanField('Cement And Manufacturing')
-    # electricity = BooleanField('Electricity')
-    # naturalGas = BooleanField('Natural Gas')
+    areaRadio = RadioField('Search By:', choices=[
+        ('zip', 'Zip Code'), ('city', 'City Name'), ('county', 'County Name')], default=2)
+    areaField = TextField('Zip Code, City, or County')
 
     submit = SubmitField()

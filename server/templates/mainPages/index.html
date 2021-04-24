@@ -1,205 +1,228 @@
-{% extends "helpers/base.html" %}
-{% block title %} Home {% endblock %}
-{% block navbar %}{% endblock%}
-{% block content %}
+{% extends "helpers/base.html" %} {% block title %} Home {% endblock %} {% block
+navbar %}{% endblock%} {% block content %}
 
 <div class="container">
   <div class="shadow p-3 mb-5 bg-body rounded">
-  <span class="text-center">
-    <h1>Tiny Feet Climate Action Planning (CAP)</h1>
-    <h2>Toolkit for Communities</h2>
-  </span>
-  <br>
-  <div class="shadow p-3 mb-5 bg-body rounded">
-
-  <h4>Project Description</h4>
-  <p>The goal of the Tiny Feet Toolkit is to help communities kickstart the Climate Action Plan (CAP) process. A CAP is
-    a set of solutions and guidelines communities will follow to help reduce their carbon footprint. The initial phase
-    of the standard CAP development process is an assessment of the greenhouse gas (GHG) emissions sources in the
-    community, known as an emissions inventory. With the process requiring arduous source data collection and general
-    understanding of climate science, the cost to perform this initial step inhibits many communities from pursuing
-    climate action. In addition, the time spent performing an emissions inventory delays any environmental improvement
-    recognized through action implementation. As a result, the Tiny Feet team created a toolkit for communities to
-    access an estimation of their GHG emissions calculated from free public data. The Tiny Feet team encourages
-    communities to use the toolkit to help ease their path in creating their CAP.</p>
-  <p>*Disclaimer* The data displayed is an estimation intended to help user in the initiating their CAP process. The
-    information provided by the toolkit is NOT a comprehensive emissions inventory for the selected area.</p>
-  </div>
-  <div class="shadow p-3 mb-5 bg-body rounded">
-  <h4>Why is creating a community Climate Action Plan important in reducing global warming?</h4>
-  <p>The UN Environment Program and the Intergovernmental Panel on Climate Change (IPCC) advise that global greenhouse
-    gas (GHG) emissions need to be cut by over half by 2030 in order to keep warming below a 1.5° C threshold, a
-    critical tipping point that if exceeded would have catastrophic consequences to all planetary systems. The primary
-    source of GHG emissions is the burning of fossil fuels to generate electricity, create heat, and run vehicles. GHG
-    are also generated from the decomposition of waste in landfills. Internationally municipalities are committing to
-    climate responsibility; in 2019, 77 countries and over 100 cities committed to net-zero carbon emissions by 2050 at
-    the international Climate Action Summit. Unfortunately, the current commitments by cities and countries to net-zero
-    emissions only get us about halfway to the emissions reductions necessary. This means that to best our chances for
-    limiting the effects of global warming, CAPs need to increase drastically both in number and in effectivity.
-    Simultaneously the effects of climate change and inequity are demanding immediate attention which GHG emissions
-    reductions goals alone often fail to prioritize.</p>
-  </div>
-  <div class="shadow p-3 mb-5 bg-body rounded">
-  <h4>User Description</h4>
-  <p>The toolkit is designed to allow the users to select the county, city, or zip-code of interest within Colorado. The
-    data is available in three different views. The first view is a map showing the average GHG emissions per person in
-    each municipality. The second view allows users to input their county, city, or zip to display their emissions data
-    per sector in chart form. The final view is a table consisting of the full dataset of calculated GHG emissions from
-    each sector for a selected county, city, or zip code. The data shows the three major sectors in GHG emissions,
-    Energy, Transportation, and Waste. The user can then press the recommendations link to look at a list of solutions
-    in decreasing their GHG emissions. The recommendations list can also be filtered by societal co-benefits created by
-    particular actions.</p>
-  <p>*Disclaimer* The data displayed is an estimation intended to help user in the initiating their CAP process. The
-    information provided by the toolkit is NOT a comprehensive emissions inventory for the selected area.</p>
-  </div>
-  <!-- <h6>Instruction: Recommendation's Page</h6>
+    <span class="text-center">
+      <h1>Tiny Feet Climate Action Planning (CAP)</h1>
+      <h2>Toolkit for Communities</h2>
+    </span>
+    <br />
+    <div class="shadow p-3 mb-5 bg-body rounded">
+      <h4>Project Description</h4>
+      <p>
+        The goal of the Tiny Feet Toolkit is to help communities kickstart the
+        Climate Action Plan (CAP) process. A CAP is a set of solutions and
+        guidelines communities will follow to help reduce their carbon
+        footprint. The initial phase of the standard CAP development process is
+        an assessment of the greenhouse gas (GHG) emissions sources in the
+        community, known as an emissions inventory. With the process requiring
+        arduous source data collection and general understanding of climate
+        science, the cost to perform this initial step inhibits many communities
+        from pursuing climate action. In addition, the time spent performing an
+        emissions inventory delays any environmental improvement recognized
+        through action implementation. As a result, the Tiny Feet team created a
+        toolkit for communities to access an estimation of their GHG emissions
+        calculated from free public data. The Tiny Feet team encourages
+        communities to use the toolkit to help ease their path in creating their
+        CAP.
+      </p>
+      <p>
+        *Disclaimer* The data displayed is an estimation intended to help user
+        in the initiating their CAP process. The information provided by the
+        toolkit is NOT a comprehensive emissions inventory for the selected
+        area.
+      </p>
+    </div>
+    <div class="shadow p-3 mb-5 bg-body rounded">
+      <h4>
+        Why is creating a community Climate Action Plan important in reducing
+        global warming?
+      </h4>
+      <p>
+        The UN Environment Program and the Intergovernmental Panel on Climate
+        Change (IPCC) advise that global greenhouse gas (GHG) emissions need to
+        be cut by over half by 2030 in order to keep warming below a 1.5° C
+        threshold, a critical tipping point that if exceeded would have
+        catastrophic consequences to all planetary systems. The primary source
+        of GHG emissions is the burning of fossil fuels to generate electricity,
+        create heat, and run vehicles. GHG are also generated from the
+        decomposition of waste in landfills. Climate action plans are roadmaps
+        that enable communities to reduce their GHG emissions in ways best
+        suited to local needs and behaviors.Internationally municipalities are
+        committing to climate responsibility; in 2019, 77 countries and over 100
+        cities committed to net-zero carbon emissions by 2050 at the
+        international Climate Action Summit. Unfortunately, the current
+        commitments by cities and countries to net-zero emissions only get us
+        about halfway to the emissions reductions necessary. This means that to
+        best our chances for limiting the effects of global warming, CAPs need
+        to increase drastically both in number and in effectivity.
+        Simultaneously the effects of climate change and inequity are demanding
+        immediate attention which GHG emissions reductions goals alone often
+        fail to prioritize. <br><br>
+        CO2e: Carbon Dioxide Equivalent, the standard unit for measurement of
+        greenhouse gasses
+      </p>
+    </div>
+    <div class="shadow p-3 mb-5 bg-body rounded">
+      <h4>User Description</h4>
+      <p>
+        The toolkit is designed to allow the users to select the county, city,
+        or zip-code of interest within Colorado. The data is available in three
+        different views. The first view is a map showing the average GHG
+        emissions per person in each municipality. The second view allows users
+        to input their county, city, or zip to display their emissions data per
+        sector in chart form. The final view is a table consisting of the full
+        dataset of calculated GHG emissions from each sector for a selected
+        county, city, or zip code. The data shows the three major sectors in GHG
+        emissions, Energy, Transportation, and Waste. The user can then press
+        the recommendations link to look at a list of solutions in decreasing
+        their GHG emissions. The recommendations list can also be filtered by
+        societal co-benefits created by particular actions.
+      </p>
+      <p>
+        *Disclaimer* The data displayed is an estimation intended to help user
+        in the initiating their CAP process. The information provided by the
+        toolkit is NOT a comprehensive emissions inventory for the selected
+        area.
+      </p>
+    </div>
+    <!-- <h6>Instruction: Recommendation's Page</h6>
   <p>1. Click on the check boxes to decide what types of data you would like to see. Select from the metrics and/or
     sectors of emissions.</p>
   <p>2. Click on the select all options to look at the full list of recommendations.</p>
   <br> -->
-  <div class="justify-content-center"><img src="../static/img/User_Flow.jpg" alt="User Flow" style="width:100%;"></div>
-  <br>
+    <div class="justify-content-center">
+      <img
+        src="../static/img/User_Flow.jpg"
+        alt="User Flow"
+        style="width: 100%"
+      />
+    </div>
+    <br />
 
-<!-- ---------------------------- Team Section ----------------------------- -->
+    <!-- ---------------------------- Team Section ----------------------------- -->
 
-  <div id="team" class="team content-section shadow p-3 mb-5 bg-body rounded">
-
+    <div id="team" class="team content-section shadow p-3 mb-5 bg-body rounded">
       <div class="row text-center teamAbout">
-      <div class="col-md-4">
-        <img src="{{ url_for('static', filename='img/madJack.png') }}" alt="Western Logo" height="160px" id="madJack">
-      </div>
-      <div class="col-md-4">
-        <h1 id="teamAbout">About Our Team</h1>
-      </div>
-      <div class="col-md-4">
-        <img src="{{ url_for('static', filename='img/blaster.jpeg') }}" alt="Mines Logo" height="210px" id="blaster">
-      </div>
-      </div>
-          
-        <div class="col-md-6 offset-md-3 text-center" id="teamBanner">
-          <strong>Our team is a collaboration of students from Western Colorado University and Colorado School of Mines.</strong>
+        <div class="col-md-4">
+          <img
+            src="{{ url_for('static', filename='img/madJack.png') }}"
+            alt="Western Logo"
+            height="160px"
+            id="madJack"
+          />
         </div>
-        <br>
-        <br>
-        <br>
-        <div class="container">
-          <div class="row">
+        <div class="col-md-4">
+          <h1 id="teamAbout">About Our Team</h1>
+        </div>
+        <div class="col-md-4">
+          <img
+            src="{{ url_for('static', filename='img/blaster.jpeg') }}"
+            alt="Mines Logo"
+            height="210px"
+            id="blaster"
+          />
+        </div>
+      </div>
 
-            <div class="col-md-4">
-              <div class="team-member">
-                <figure>
-                  <img src="{{ url_for('static', filename='img/teamPhotos/valeda.jpeg') }}" alt="Valeda" width="200" class="image-responsive">
-                  <figcaption>
-                    <p style="font-size: .7vw;">After 15 years as an aerospace engineer and program manager building, testing, and launching satellites, Valeda
-                      shifted her career focus to contribute to the pressing issue of climate change. She enrolled at Western Colorado
-                      University to join their Master of Environmental Management program with a focus in Sustainable and Resilient
-                      Communities. She assisted Eagle County with emissions forecasting of climate actions and updated Park City’s
-                      emissions inventory. These efforts highlighted the cost, effort duration of a standard GHG emissions inventory and
-                      thus the concept of the Tiny Feet CAP toolkit emerged.</p>
-                  </figcaption>
-                </figure>
-                <h4>Valeda Scribner</h4>
-                <p>Masters of Environmental Management</p>
-              </div><!-- /.team-member-->
-            </div><!-- /.col-md-4 -->
-  
-            <div class="col-md-4">
-              <div class="team-member">
-                <figure>
-                  <img src="{{ url_for('static', filename='img/teamPhotos/eric.jpeg') }}" alt="Eric" width="200" class="image-responsive">
-                  <figcaption>
-                    <p>Eric is a non-traditional student studying Computer Science at Western Colorado University who holds a bachelors in
-                    Media and Communications.</p>
-                  </figcaption>
-                </figure>
-                <h4>Eric Swanson</h4>
-                <p>Bachelors of Computer Science</p>
-              </div><!-- /.team-member-->
-            </div><!-- /.col-md-4 -->
-          
-            <div class="col-md-4">
-              <div class="team-member">
-                <figure>
-                  <img src="{{ url_for('static', filename='img/teamPhotos/template.jpg') }}" alt="Caroline" width="200" class="image-responsive">
-                  <figcaption>
-                    <p>Caroline Hidalgo is pursuing a degree in Electrical Engineering B.S. at Colorado School of Mines. Her emphasis area
-                      covered Antennas and Wireless Communications, which is where her focus will lie moving forward after graduation.</p>
-                  </figcaption>
-                </figure>
-                <h4>Caroline Hidalgo</h4>
-              </div><!-- /.team-member-->
-            </div><!-- /.col-md-4 -->
+      <div class="col-md-6 offset-md-3 text-center" id="teamBanner">
+        <strong
+          >Our team is a collaboration of students from Western Colorado
+          University and Colorado School of Mines.</strong
+        >
+      </div>
+      <br />
+      <br />
+      <br />
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="team-member">
+              <figure>
+                <img
+                  src="{{ url_for('static', filename='img/teamPhotos/valeda.jpeg') }}"
+                  alt="Valeda"
+                  width="200"
+                  class="image-responsive"
+                />
+                <figcaption>
+                  <p style="font-size: 0.7vw">
+                    After 15 years as an aerospace engineer and program manager
+                    building, testing, and launching satellites, Valeda shifted
+                    her career focus to contribute to the pressing issue of
+                    climate change. She enrolled at Western Colorado University
+                    to join their Master of Environmental Management program
+                    with a focus in Sustainable and Resilient Communities. She
+                    assisted Eagle County with emissions forecasting of climate
+                    actions and updated Park City’s emissions inventory. These
+                    efforts highlighted the cost, effort duration of a standard
+                    GHG emissions inventory and thus the concept of the Tiny
+                    Feet CAP toolkit emerged.
+                  </p>
+                </figcaption>
+              </figure>
+              <h4>Valeda Scribner</h4>
+              <p>Masters of Environmental Management</p>
+            </div>
+            <!-- /.team-member-->
+          </div>
+          <!-- /.col-md-4 -->
 
-            <div class="col-md-4">
-              <div class="team-member">
-                <figure>
-                  <img src="{{ url_for('static', filename='img/teamPhotos/template.jpg') }}" alt="Heather" width="200" class="image-responsive">
-                  <figcaption>
-                    <p>Heather Keniry is currently a senior at Colorado School of Mines majoring in Mechanical Engineering with a minor in
-                      Computer Science specializing in Robotics and Artificial Intelligence. Outside of school she enjoys running,
-                      backpacking and reading.</p>
-                  </figcaption>
-                </figure>
-                <h4>Heather Keniry</h4>
-              </div><!-- /.team-member-->
-            </div><!-- /.col-md-4 -->
+          <div class="col-md-4">
+            <div class="team-member">
+              <figure>
+                <img
+                  src="{{ url_for('static', filename='img/teamPhotos/eric.jpeg') }}"
+                  alt="Eric"
+                  width="200"
+                  class="image-responsive"
+                />
+                <figcaption>
+                  <p>
+                    Eric is a non-traditional student studying Computer Science
+                    at Western Colorado University who holds a bachelors in
+                    Media and Communications.
+                  </p>
+                </figcaption>
+              </figure>
+              <h4>Eric Swanson</h4>
+              <p>Bachelors of Computer Science</p>
+            </div>
+            <!-- /.team-member-->
+          </div>
+          <!-- /.col-md-4 -->
 
-            <div class="col-md-4">
-              <div class="team-member">
-                <figure>
-                  <img src="{{ url_for('static', filename='img/teamPhotos/template.jpg') }}" alt="April" width="200" class="image-responsive">
-                  <figcaption>
-                    <p>April Lyndon is pursuing a degree in Mechanical Engineering and a minor in Economics at Colorado School of Mines.</p>
-                  </figcaption>
-                </figure>
-                <h4>April Lyndon</h4>
-              </div><!-- /.team-member-->
-            </div><!-- /.col-md-4 -->
-
-            <div class="col-md-4">
-              <div class="team-member">
-                <figure>
-                  <img src="{{ url_for('static', filename='img/teamPhotos/template.jpg') }}" alt="Perla" width="200" class="image-responsive">
-                  <figcaption>
-                    <p>Perla Lyon is a senior Environmental Engineering student. She has work experience in various areas, including
-                      customer service and business. In her free time, she enjoys hiking, traveling, and camping. She is passionate about
-                      the outdoors, plants and is always looking for new challenges.</p>
-                  </figcaption>
-                </figure>
-                <h4>Perla Lyon</h4>
-              </div><!-- /.team-member-->
-            </div><!-- /.col-md-4 -->
-
-            <div class="col-md-4">
-              <div class="team-member">
-                <figure>
-                  <img src="{{ url_for('static', filename='img/teamPhotos/template.jpg') }}" alt="Gillian" width="200" class="image-responsive">
-                  <figcaption>
-                    <p>Gillian Yost is currently a senior at Colorado School of Mines where she is majoring in Electrical Engineering with
-                      double minors in Computer Science and Public Affairs.</p>
-                  </figcaption>
-                </figure>
-                <h4>Gillian Yost</h4>
-              </div><!-- /.team-member-->
-            </div><!-- /.col-md-4 -->
-
-            <div class="col-md-4">
-              <div class="team-member">
-                <figure>
-                  <img src="{{ url_for('static', filename='img/teamPhotos/template.jpg') }}" alt="Kathie" width="200" class="image-responsive">
-                  <figcaption>
-                    <p>Kathie Zhang is pursuing a Mechanical Engineering B.S. at Colorado School of Mines. Outside of school, her favorite
-                      pastime is to get some boba (Tapioca Drink) with her friends.</p>
-                  </figcaption>
-                </figure>
-                <h4>Kathie Zhang</h4>
-              </div><!-- /.team-member-->
-            </div><!-- /.col-md-4 -->
-  
-          </div><!-- /.row -->
-        </div><!-- /.container -->
+          <div class="col-md-4">
+            <div class="team-member">
+              <figure>
+                <img
+                  src="{{ url_for('static', filename='img/thirtyPercent.png') }}"
+                  alt="Caroline"
+                  width="200"
+                  class="image-responsive"
+                />
+                <figcaption>
+                  <p>
+                    A team of Engineers from the Colorado School of Mines have
+                    worked together with the students from Western to develop
+                    the models for the database and the web app.
+                  </p>
+                </figcaption>
+              </figure>
+              <h4>Colorado School of Mines Team</h4>
+              <p>Engineering</p>
+            </div>
+            <!-- /.team-member-->
+          </div>
+          <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
   </div>
+  <br />
+  <br />
+  {% endblock %}
 </div>
-<br>
-<br>
-{% endblock %}

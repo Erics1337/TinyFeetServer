@@ -1,12 +1,15 @@
-{% extends "helpers/base.html" %}
-{% block title %} Recommended Actions {% endblock %}
-{% block content %}
-
-{# get_flashed_messages() is auto sent to the template with the flash() call #}
-{% for mess in get_flashed_messages() %}
+{% extends "helpers/base.html" %} {% block title %} Recommended Actions {%
+endblock %} {% block content %} {# get_flashed_messages() is auto sent to the
+template with the flash() call #} {% for mess in get_flashed_messages() %}
 <!-- Message Banner -->
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close" class="fade close">
+  <button
+    type="button"
+    class="close"
+    data-dismiss="alert"
+    aria-label="Close"
+    class="fade close"
+  >
     <span aria-hidden="true">&times;</span>
   </button>
   {{mess}}
@@ -14,132 +17,191 @@
 {% endfor %}
 
 <div class="container text-center">
-
   <div class="shadow p-3 mb-5 bg-body rounded">
     <h3>Recommended Actions</h3>
 
-  <p>The below filters allow you to filter solutions based on these co-benefits and their GHG reduction potential.</p>
+    <p>
+      The below filters allow you to filter solutions based on co-benefits
+      and their GHG reduction potential.
+    </p>
+    <br>
+
+    <!---------------------- Checkbox Filters for Holistic Metrics ------------------------------->
 
 
-  <!---------------------- Checkbox Filters for Holistic Metrics ------------------------------->
-
-
-  <div class="row">
-    <div class="col-sm-5 col-md-6">
-      <h3>Filter by Emissions Sector</h3>
-      <p>I want to see solutions that reduce emissions from: </p>
-    </div>
-    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-      <h3>Filter by Community Co-benefit</h3>
-      <p>I want to see solutions that support: </p>
-    </div>
-
-  </div>
-
-
-<!-- Uses bootstrap 4 tooltips -->
-  <form action="/recommendations" method="POST">
-    <div class="row">
-      <div class="col-sm-5 col-md-6" ><span data-toggle="tooltip" data-placement="right" title="Display recommended actions involving all economic sectors">
-        {{ form.allSec.label }}{{ form.allSec }}</span>
-      </div>
-      <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-        <span data-toggle="tooltip" data-placement="right" title="Display all solutions">{{ form.allSol.label }}{{ form.allSol }}</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-5 col-md-6">
-        <span data-toggle="tooltip" data-placement="right" title="Display actions that relate to the transportation sector">
-        {{ form.transportation.label }}{{ form.transportation }}</span>
-      </div>
-      <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-        <span data-toggle="tooltip" data-placement="right" title="This co-benefit will show solutions that can lessen the economic disparity across a community’s population.
-        These actions also expand access to transportation and energy.">{{ form.equity.label }}{{ form.equity }}</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-5 col-md-6">
-        <span data-toggle="tooltip" data-placement="right" title="Display actions that relate to the energy sector">{{ form.energy.label }}{{ form.energy }}</span>
-      </div>
-      <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-        <span data-toggle="tooltip" data-placement="right" title="This co-benefit will display all solution types that are achievable financially in the long term for communities
-        with a stricter climate action plan budget. These actions also have the potential to generate profit.">{{ form.econSus.label }}{{ form.econSus }}</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-5 col-md-6">
-        <span data-toggle="tooltip" data-placement="right" title="Show results that relate to the waste sector">{{ form.waste.label }}{{ form.waste }}</span>
-      </div>
-      <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-        <span data-toggle="tooltip" data-placement="right" title="This co-benefit will show solutions that are centered on increasing health and cleanliness of local land, air
-        and water ecosystems.">{{ form.envQuality.label }}{{ form.envQuality }}</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-5 col-md-6"></div>
-      <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-        <span data-toggle="tooltip" data-placement="right" title="This co-benefit will display solutions that are geared towards improving physical well-being within the
-        community.">{{ form.healthSafety.label }}{{ form.healthSafety }}</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-5 col-md-6 justify-content-center">
-        {{ form.submit }}
-      </div>
-      <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-        <span data-toggle="tooltip" data-placement="right" title="This co-benefit will show solutions that can improve a community’s ability to prepare for, adapt to and
-        withstand risks.">{{ form.resilience.label }}{{ form.resilience }}</span>
-      </div>
-    </div>
-  </form>
-  <br>
-  <br>
-  
-<!-- ----------------------- Recommendations Output ------------------------ -->
-  {% if tableData %}
-  <br>
-  <h1>List of Recommendations Selected for your Community</h1>
-
-    {% for row in tableData %}
-
-        {% if row[0] == 'Vehicles And Transport' %}
-          {% set image = "url(https://ionicframework.com/img/getting-started/components-card.png)" %}
-        {% elif row[0] == 'Energy' %}
-          {% set image = "url(https://ionicframework.com/img/getting-started/ionic-native-card.png)" %}
-        {% elif row[0] == 'Waste and Land Management ' %}
-          {% set image = "url(https://ionicframework.com/img/getting-started/theming-card.png)" %}
-        {% endif %}
-
-        {% if row[3] == 4 %}
-          {% set color = 'green' %}
-        {% elif row[3] == 3 %}
-          {% set color = 'yellow' %}
-        {% elif row[3] == 2 %}
-          {% set color = 'orange' %}
-        {% elif row[3] == 1 %}
-          {% set color = 'red' %}
-        {% endif %}
-
-        <!-- if third iteration in loop start new row -->
-        {% if loop.index0 % 2 == 0 %}
-          <div class="row justify-content-center">
-        {% endif %}
-
-          <div class="card col-md-8 mx-auto" style="background-image: {{ image }}; border-color: {{ color }};">
-            <h3> {{ row[1] }} </h3>
-            <p> {{ row[2] }}</p>
+    <!-- Uses bootstrap 4 tooltips -->
+    <form action="/recommendations" method="POST">
+      <div class="row">
+        <div class="col-sm-5 col-md-6">
+          <div>
+            <h3>Filter by Community Co-benefit</h3>
+            <p>I want to see solutions that support:</p>
+          </div>
+          <div>
+            <span
+              data-toggle="tooltip"
+              data-placement="right"
+              title="Display all solutions"
+              >{{ form.allSol.label }}{{ form.allSol }}</span
+            >
           </div>
 
-        <!-- if last column in row -->
-        {% if loop.index0 % 2 == 1 or loop.last %}
+        <div>
+          <span
+            data-toggle="tooltip"
+            data-placement="right"
+            title="This co-benefit will display all solution types that are achievable financially in the long term for communities
+        with a stricter climate action plan budget. These actions also have the potential to generate profit."
+            >{{ form.econSus.label }}{{ form.econSus }}</span
+          >
+        </div>
+        <div>
+          <span
+            data-toggle="tooltip"
+            data-placement="right"
+            title="This co-benefit will show solutions that are centered on increasing health and cleanliness of local land, air
+        and water ecosystems."
+            >{{ form.envQuality.label }}{{ form.envQuality }}</span
+          >
+        </div>
+    
+        <div></div>
+        <div>
+          <span
+            data-toggle="tooltip"
+            data-placement="right"
+            title="This co-benefit will display solutions that are geared towards improving physical well-being within the
+        community."
+            >{{ form.healthSafety.label }}{{ form.healthSafety }}</span
+          >
+        </div>
+        <div>
+          <span
+            data-toggle="tooltip"
+            data-placement="right"
+            title="This co-benefit will show solutions that can lessen the economic disparity across a community’s population.
+        These actions also expand access to transportation and energy."
+            >{{ form.equity.label }}{{ form.equity }}</span
+          >
+        </div>
+        <div>
+          <span
+            data-toggle="tooltip"
+            data-placement="right"
+            title="This co-benefit will show solutions that can improve a community’s ability to prepare for, adapt to and
+        withstand risks."
+            >{{ form.resilience.label }}{{ form.resilience }}</span
+          >
+        </div>
+        </div>
+        <div class="col-sm-5 col-md-6">
+
+          <div>
+            <h3>Filter by Area</h3>
+            <p>Enter an area to display GHG reducing actions recommended for the areas of highest concern</p>
           </div>
-        {% endif %}
-    {% endfor %}
+          <br>
+          <div>
+            <span
+              data-toggle="tooltip"
+              data-placement="right"
+              title="Choose an area to find recommendations for"
+            >
+            {% for subfield in form.areaRadio %}
+            <tr>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td><br>
+            </tr>
+        {% endfor %}</span
+            >
+          </div>
+        <div>
+          <br>
+          <span
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Enter either a zip code, City Name, or County Name"
+          >
+            <!-- {{ form.areaField.label }} -->
+            {{ form.areaField }}</span
+          >
+        </div>
+        <br>
+        <div>
+          {{ form.submit }}
+        </div>
+        </div>
+      </div>
+    </form>
+    <br />
+    <br />
+
+    {% include 'helpers/modal.html' %}
+
+
+    <!-- ----------------------- Recommendations Output ------------------------ -->
+    {% if tableData %}
+    <br>
+    <h1>List of Recommendations Selected for your Community</h1>
+    <p>{{ details }}</p>
+
+    {% for row in tableData %} 
+      {% if row[0] == 'Vehicles And Transport' %} 
+        {% set image = "url(https://ionicframework.com/img/getting-started/components-card.png)" %}
+    {% elif row[0] == 'Energy' %} 
+      {% set image = "url(https://ionicframework.com/img/getting-started/ionic-native-card.png)"%} 
+    {% elif row[0] == 'Waste and Land Management ' %} 
+      {% set image = "url(https://ionicframework.com/img/getting-started/theming-card.png)" %} 
+    {%endif %} 
+
+
+    {% if row[3] == 4 %} 
+      {% set color = 'green' %} 
+    {% elif row[3] == 3%}
+     {% set color = 'yellow' %} 
+    {% elif row[3] == 2 %} 
+      {% set color = 'orange'%} 
+    {% elif row[3] == 1 %} 
+      {% set color = 'red' %} 
+    {% endif %}
+
+    <!-- If second iteration in loop start new row -->
+    {% if loop.index0 % 2 == 0 %}
+    <div class="row justify-content-center">
+      {% endif %}
+
+      <button
+        type="button"
+        class="card col-md-8 mx-auto"
+        style="background-image: {{ image }}; border-color: {{ color }};"
+        data-label="{{ row[1] }}" data-description="{{ row[2] }}" data-toggle="modal" data-target="#exampleModal"
+                >
+        <!-- <h3>{{ row[1] }}</h3> -->
+        <p>{{ row[2] }}</p>
+      </button>
+
+      <!-- If last column in row -->
+      {% if loop.index0 % 2 == 1 or loop.last %}
+    </div>
+    {% endif %} {% endfor %}
   </div>
-  <br>
-  <br>
+  <br />
+  <br />
 
   {% endif %}
-
 </div>
+
+<script>
+  $('#exampleModal').on('show.bs.modal', function (event) {
+      var card = $(event.relatedTarget) // Button that triggered the modal
+      var label = card.data('label') // Extract info from data-* attributes
+      var description = card.data('description') // Extract info from data-* attributes
+      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+      var modal = $(this)
+      modal.find('.modal-label').text(label)
+      modal.find('.modal-body #description').text(description)
+    })
+</script>
+
 {% endblock %}
