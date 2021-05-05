@@ -1,12 +1,10 @@
 <!-- navbar is included in base.html.  Dependencies are bootstrap and jquery -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- Brand Link -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
     <a class="navbar-brand" href="/">
     <img src="{{ url_for('static', filename='img/logoTransparant.png') }}" style="width:42px;height:42px;">
     TINY FEET
     </a>
 
-  <!-- THIS SETS UP THE COLLAPSABLE BUTTON ELEMENT (HAMBURGER) -->
   <button
     class="navbar-toggler"
     type="button"
@@ -19,13 +17,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <!-- THEN WE PUT AN UNORDERED LIST INSIDE OF A COLLAPSE DIV -->
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <!-- EVERY ITEM IN NAVBAR IS JUST A LIST ITEM -->
-      <!-- WE CAN ALSO CREATE DROPDOWN MENUS -->
-      <li class="nav-item dropdown">
-        <!-- TOP LEVEL DROPDOWN -->
+      <!-- <li class="nav-item dropdown">
         <a
           class="nav-link dropdown-toggle"
           href="#"
@@ -34,38 +28,34 @@
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
-        >
-          Emissions
-        </a>
-
-        <!-- ONE DIVISION IN THE DROPDOWN -->
+        >Emissions</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/emissions">Emissions Overview</a>
-          <!-- ANOTHER DIVISION IN THE DROPDOWN -->
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/emissions/map">Map Data</a>
-          <!-- ANOTHER DIVISION IN THE DROPDOWN -->
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/emissions/chart">Chart Data</a>
         </div>
-        
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="/emissions">Emissions</a>
       </li>
-      <!-- HERE IS ANOTHER ONE, BUT THE LINK DOESNT "LOOK" ACTIVE -->
+      <li class="nav-item">
+        <a class="nav-link" href="/emissions/map">Map Data</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/emissions/chart">Chart Data</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/recommendations">Recommendations</a>
       </li>
-      <!-- HERE IS ANOTHER ONE, BUT THE LINK DOESNT "LOOK" ACTIVE -->
       <li class="nav-item">
-        <a class="nav-link" href="/resources">Resources</a>
+        <a class="nav-link" href="http://www.tinyfeet.website">Community Site</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/feedback">Feedback</a>
+        <a class="nav-link" href="https://www.mines.edu/capstoneseniordesign/project/tiny-feet-cap-toolkit/">Mines Showcase</a>
       </li>
-
-
     </ul>
-
-    <!-- CAN EVEN ADD A SEARCH FORM -->
     <form action="{{ url_for('emissions.chart') }}" method="POST" class="form-inline my-2 my-lg-0">
       <input
         class="form-control mr-sm-2"
@@ -81,5 +71,8 @@
         Get Data
       </button>
     </form>
+    <a class="nav-link" href="/feedback" style="text-decoration: none !important; color: inherit;">Feedback</a>
   </div>
 </nav>
+<br>
+<br>

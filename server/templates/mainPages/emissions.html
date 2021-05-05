@@ -4,16 +4,39 @@
 
 <div class="container">
   <div class="shadow p-3 mb-5 bg-body rounded">
-  <h4>Emissions Estimation Overview</h4>
+  <h3 class="text-center">Emissions Estimation Overview</h3>
   <br>
-  <div class="shadow p-3 mb-5 bg-body rounded">
+  <div class="shadow-sm p-3 mb-5 bg-body rounded">
   <h5>Data Explanation</h5>
   <p>Using the Emissions Estimation Tool, you will see your zip code’s estimated per capita greenhouse gas (GHG) emissions data displayed in
     the form of a heat map, pie chart, and bar chart showing GHG emissions by sources. The data for your county will be
-    displayed by zip code in units of mT CO2e/year, broken down into four major sectors of your emissions.</p>
+    displayed by zip code in units of mT CO<sub>2</sub>e/year, broken down into four major sectors of your emissions.
+    </p>
+    <br>
+
+    <h5>What is CO<sub>2</sub>e and why should I care about it?</h5>
+    <p>CO<sub>2</sub>e is the standardized measurement of greenhouse gasses. 
+      It allows us to express a carbon footprint comprised of many greenhouse gasses with one equivalent unit. 
+      Carbon Dioxide (CO2), Methane (NH4), and Nitrous Oxide (N2O) are all greenhouse gasses, however they each have a different global warming potential (GWP) once released into the atmosphere. Global warming potential is measured in relation to Carbon Dioxide, therefore multiplying a chemical’s GWP by the volume (metric tons) released will provide us with the carbon dioxide equivalent volume. 
+      Tracking our GHG emissions enables us to reduce them over time, lessening human contribution to global warming</p>
+      <h5>1 mT CO2e is equal to:</h5> 
+
+      <p>2513 miles driven with an average passenger vehicle </p>
+
+      <p>113 gallons of gasoline consumed </p>
+
+      <p>66.4 homes electricity use for a day </p>
+
+      <p>121,643 smartphones charged </p>
+
+      <p>42.5 trash bags of waste recycled instead of landfilled </p>
+
+      <p>1.75 wind turbines running for an hour </p>
+
+  </p>
   </div>
 
-  <div class="bs-sectors shadow p-3 mb-5 bg-body rounded">
+  <div class="bs-sectors shadow-sm p-3 mb-5 bg-body rounded">
     <h5>Sector Descriptions</h5>
     <p>GHG emissions data will be organized by the following source sectors</p>
     <ul class="nav nav-tabs">
@@ -68,8 +91,7 @@
 
 
  
-  <br>
-  <div class="bs-tools shadow p-3 mb-5 bg-body rounded">
+  <div class="bs-tools shadow-sm p-3 mb-5 bg-body rounded">
     <h5>Data Formats</h5>
     <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -106,7 +128,7 @@
 
 
   <br>
-  <div class="shadow p-3 mb-5 bg-body rounded">
+  <div class="shadow-sm p-3 mb-5 bg-body rounded">
   <h5>A Discussion of GHG Emissions Scope</h5>
   <div>
     <img src="../static/img/cityGHGemissions.png" width="100%" alt="Emissions" usemap="#emissionsmap">
@@ -133,11 +155,11 @@
     availability of data as well as areas where local governance has influence.</p>
   </div>
 
-  <div class="shadow p-3 mb-5 bg-body rounded">
+  <div class="shadow-sm p-3 mb-5 bg-body rounded">
     <h5>General Methodology</h5>
     <p>To start off, the team researched publicly available data for the main sectors of emissions, Energy, Vehicles 
       and Transportation, and Waste and Management. With the data for each major sector and its subsectors providing 
-      different data types, the team worked together to convert into CO2e (Carbon Dioxide Equivalent). Since the 
+      different data types, the team worked together to convert into CO<sub>2</sub>e (Carbon Dioxide Equivalent). Since the 
       publicly available data consisted of varying data values in different units, the team started the calculation 
       in excel before exporting the data into the SQL database. The equations used to convert the publicly available 
       data are shown in more detail in the link below. The converted data is then uploaded into an SQL database, which 
@@ -145,7 +167,7 @@
   </div>
 
     <!-- For more detail on the database methodology, please read the report in the link below:</p>--> 
-    <div class="shadow p-3 mb-5 bg-body rounded">
+    <div class="shadow-sm p-3 mb-5 bg-body rounded">
     <h5>Limitations of our In-boundary Emissions Estimation</h5>
     <p>Ultimately, our per-capita estimation is less a representation of the behavior 
       of residents and is instead a snapshot of the volume of waste collected and fossil 

@@ -100,7 +100,7 @@ margin: 20px;
 }
 
 .team-member figcaption p {
-  font-size: 1vw;
+  font-size: 1vmin;
 }
 
 .team-member figcaption ul {
@@ -198,5 +198,9 @@ margin: 20px;
   }
   .teamAbout{
     position: relative; top: -10px;
+  }
+
+  .team-member figcaption p {
+    font-size: 1.2vmin;
   }
 }

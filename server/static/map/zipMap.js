@@ -324,7 +324,7 @@ function initMap() {
           '<h3 class="infoWindowText">Population: ' +
           population2018 +
           "</h3>" +
-          '<h3 class="infoWindowText">Average CO2e Per Person: ' +
+          '<h3 class="infoWindowText">Average CO<sub>2</sub>e Per Person: ' +
           CO2ePerPop.toFixed(2) +
           "</h3>" +
           // '<div id="bodyContent" style="font-size: 12pt;" >'+
@@ -431,7 +431,7 @@ function initMap() {
     // Legend for CO2e Per Person
     if (useDensity) {
       var div = document.createElement("center");
-      div.innerHTML = "<h3>Metric Tons<br/>CO2e Per<br/>Person</center></h3>";
+      div.innerHTML = "<h3>Metric Tons<br/>CO<sub>2</sub>e Per<br/>Person</center></h3>";
       legend.appendChild(div);
       for (let key in colorScale) {
         var color = key;

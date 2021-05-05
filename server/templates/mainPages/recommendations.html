@@ -97,15 +97,15 @@ template with the flash() call #} {% for mess in get_flashed_messages() %}
         <div class="col-sm-5 col-md-6">
 
           <div>
-            <h3>Filter by Area</h3>
-            <p>Enter an area to display GHG reducing actions recommended for the areas of highest concern</p>
+            <h3>Filter by Location</h3>
+            <p>Enter an location to display GHG reducing actions recommended for the locations of highest concern</p>
           </div>
           <br>
           <div>
             <span
               data-toggle="tooltip"
               data-placement="right"
-              title="Choose an area to find recommendations for"
+              title="Choose an location to find recommendations for"
             >
             {% for subfield in form.areaRadio %}
             <tr>
