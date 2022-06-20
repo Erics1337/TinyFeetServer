@@ -1,70 +1,79 @@
-{% extends "helpers/base.html" %}
-{% block title %} Emissions {% endblock %}
-{% block content %}
+{% extends "helpers/base.html" %} {% block title %} Emissions {% endblock %} {%
+block content %}
 <style>
-  /* Always set the map height explicitly to define the size of the div
+	/* Always set the map height explicitly to define the size of the div
    * element that contains the map. */
-  #map {
-    height: 90vh;
-  }
+	#map {
+		height: 90vh;
+	}
 
-  #legend {
-    font-family: Arial, sans-serif;
-    background: #fff;
-    padding: 10px;
-    margin: 10px;
-    border: 3px solid #000;
-    border-collapse: collapse;
-  }
+	#legend {
+		font-family: Arial, sans-serif;
+		background: #fff;
+		padding: 10px;
+		margin: 10px;
+		border: 3px solid #000;
+		border-collapse: collapse;
+	}
 
-  #legend h3 {
-    margin-top: 0;
-  }
+	#legend h3 {
+		margin-top: 0;
+	}
 
-  #infoWindow {
-    height: 390px;
-  }
+	#infoWindow {
+		height: 390px;
+	}
 
-  .infoWindowText {
-    font-size: 120%;
-    text-align: center;
-  }
+	.infoWindowText {
+		font-size: 120%;
+		text-align: center;
+	}
 
-  #infoWindowHeader {
-    font-size: 150%;
-  }
+	#infoWindowHeader {
+		font-size: 150%;
+	}
 
-  .cbox {
-    font-size: 150%;
-    font-weight: bold;
-    color: #ededed;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  }
+	.cbox {
+		font-size: 150%;
+		font-weight: bold;
+		color: #ededed;
+		text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	}
 </style>
 
 <div class="container">
+	<div class="shadow p-3 mb-5 bg-body rounded justify-content-center">
+		<h1>Emissions Data Visualized on Google Map</h1>
+		<p>
+			Interactive map displays pie-chart data for every Zip region in
+			Colorado
+		</p>
 
-  <div class="shadow p-3 mb-5 bg-body rounded justify-content-center">
-    <h1>Emissions Data Visualized on Google Map</h1>
-    <p>Interactive map displays pie-chart data for every Zip region in Colorado</p>
+		<form action="map" method="POST">
+			<button type="submit" class="btn btn-success">
+				View Data by County Region
+			</button>
+		</form>
+		<br />
 
-    <form action="map" method="POST">
-      <button type="submit" class="btn btn-success">View Data by County Region</button>
-    </form>
-    <br>
-
-  <div id="map"></div>
-  <div id="legend"></div>
-  <span>*Disclaimer* Certain zip code regions did not have publicly
-    available data for certain sectors resulting in missing data for
-    certain regions.</span>
+		<div id="map"></div>
+		<div id="legend"></div>
+		<span
+			>*Disclaimer* Certain zip code regions did not have publicly
+			available data for certain sectors resulting in missing data for
+			certain regions.</span
+		>
+	</div>
 </div>
-
-</div>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script
+	type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"
+></script>
 <script src="{{ url_for('static', filename='map/zipMap.js') }}"></script>
 
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVO9N4Qdj5bxyyVo6B9QqGFfJxfOTHr3w&callback=initMap">
-  </script>
+<script
+	async
+	defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3jhHmkYJhq2O8CjD85mlsVsIkr6fU9ZE&callback=initMap"
+></script>
 {% endblock %}
